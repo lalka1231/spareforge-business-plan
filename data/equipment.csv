@@ -1,0 +1,27 @@
+item,configuration,qty,unit_cost_source_currency,unit_cost_source,unit_cost_rub,total_rub,type,source_id,note
+Bambu Lab A1,minimal,2,USD,349,40833,81666,CALCULATION,S26,USD price*90*1.3
+Filament dryers,minimal,2,RUB,15000,15000,30000,ASSUMPTION,,Basic dryers/storage
+Tools and measurement,minimal,1,RUB,50000,50000,50000,ASSUMPTION,,Nozzles plates caliper postprocessing hand tools
+Workstation,minimal,1,RUB,90000,90000,90000,ASSUMPTION,,CAD/slicer computer
+Initial materials,minimal,1,RUB,50000,50000,50000,ASSUMPTION,,PLA PETG TPU starter stock
+Website/form,minimal,1,RUB,60000,60000,60000,ASSUMPTION,,Simple order form and catalog seed
+Reserve,minimal,1,RUB,38334,38334,38334,ASSUMPTION,,Delivery setup contingency
+Total minimal,minimal,1,RUB,400000,400000,400000,CALCULATION,,Rounded total
+Bambu Lab P1S,base,4,USD,1019,119223,476892,CALCULATION,S25,USD price*90*1.3 rounded in docs to 476000
+Filament dryers and storage,base,1,RUB,60000,60000,60000,ASSUMPTION,,2-4 dryers plus dry boxes
+Tools nozzles plates measurement,base,1,RUB,70000,70000,70000,ASSUMPTION,,Operating kit
+Workstation,base,1,RUB,120000,120000,120000,ASSUMPTION,,CAD and admin
+Ventilation/filtration,base,1,RUB,90000,90000,90000,ASSUMPTION,,Needed for ABS/ASA risk control
+Furniture and shelving,base,1,RUB,60000,60000,60000,ASSUMPTION,,Benches storage packing
+Initial materials,base,1,RUB,80000,80000,80000,ASSUMPTION,,PLA PETG ASA TPU starter stock
+Website/order form,base,1,RUB,80000,80000,80000,ASSUMPTION,,MVP site and file intake
+Reserve,base,1,RUB,83108,83108,83108,ASSUMPTION,,Contingency
+Total base,base,1,RUB,1120000,1120000,1120000,CALCULATION,,Rounded total used in financial model
+Bambu Lab P1S,expanded,6,USD,1019,119223,715338,CALCULATION,S25,USD price*90*1.3
+Bambu Lab X1C,expanded,1,USD,1249,146133,146133,CALCULATION,S25,Reference from Bambu Lab store result; verify before purchase
+3D scanner,expanded,1,RUB,350000,350000,350000,ASSUMPTION,,Mid-level scanner placeholder
+Drying/storage system,expanded,1,RUB,140000,140000,140000,ASSUMPTION,,More robust material control
+QC and tooling,expanded,1,RUB,180000,180000,180000,ASSUMPTION,,Measurement postprocess spare parts
+Workstations,expanded,2,RUB,120000,120000,240000,ASSUMPTION,,CAD and operations
+Ventilation/furniture/site/reserve,expanded,1,RUB,728529,728529,728529,ASSUMPTION,,Expanded facility setup
+Total expanded,expanded,1,RUB,2500000,2500000,2500000,CALCULATION,,Rounded total

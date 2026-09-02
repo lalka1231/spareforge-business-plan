@@ -1,0 +1,24 @@
+id,category,item,value,unit,type,source_id,note
+A001,currency,USD to RUB,90,RUB per USD,ASSUMPTION,,Used only for MVP conversion of imported equipment/material prices
+A002,currency,EUR to RUB,100,RUB per EUR,ASSUMPTION,,Used only for rough reference; not used as official exchange rate
+A003,procurement,import/logistics markup,30,percent,ASSUMPTION,,Added to official USD prices to approximate local landed cost
+A004,electricity,Moscow electricity tariff reference,8.46,RUB per kWh,FACT,S32,Population tariff reference; business tariff may differ
+A005,production,base printer count,4,printers,ASSUMPTION,,Base microfactory configuration
+A006,production,available print hours per printer per day,18,hours,ASSUMPTION,,Allows overnight jobs but includes idle time
+A007,production,utilization factor,65,percent,ASSUMPTION,,Includes setup maintenance downtime scheduling losses
+A008,production,average print time,3.5,hours/order,ASSUMPTION,,Mixed small medium complex jobs
+A009,production,average defect rate,10,percent,ASSUMPTION,,Initial controlled MVP target
+A010,labor,operator labor rate,500,RUB/hour,ASSUMPTION,,Direct production labor used in unit economics
+A011,labor,CAD modeling labor rate,700,RUB/hour,ASSUMPTION,,Direct modeling labor for complex jobs
+A012,amortization,printer depreciation rate,20,RUB/print hour,ASSUMPTION,,Simplified allocation across useful print hours
+A013,orders,small order mix,45,percent,ASSUMPTION,,Used in weighted average order economics
+A014,orders,medium order mix,40,percent,ASSUMPTION,,Used in weighted average order economics
+A015,orders,complex order mix,15,percent,ASSUMPTION,,Used in weighted average order economics
+A016,financial,average ticket,2260,RUB/order,CALCULATION,,900*45%+2200*40%+6500*15%
+A017,financial,average variable cost,1003.75,RUB/order,CALCULATION,,303*45%+895*40%+3396*15%
+A018,financial,contribution margin per order,1256.25,RUB/order,CALCULATION,,Average ticket minus average variable cost
+A019,financial,fixed monthly OPEX,220000,RUB/month,ASSUMPTION,,Rent marketing admin software maintenance logistics reserve
+A020,financial,break-even orders,176,orders/month,CALCULATION,,220000/1256.25 rounded up
+A021,market,TAM AM services lower bound,8.53,USD bn,FACT,S03,AM Research combined AM services market 2025
+A022,market,TAM AM services upper bound,11.62,USD bn,CALCULATION,S01,48% of Wohlers 2025 AM revenue 24.2 USD bn
+A023,scope,excluded safety-critical parts,1,boolean,ASSUMPTION,,MVP excludes safety-critical regulated high-load parts
