@@ -1,0 +1,9 @@
+segment,example_sources,price_reference,current_share_pct_assumption,target_share_after_spareforge_pct_assumption,notes
+Local 3D printing studios,"04mm; 3D-pechat-moskwa; NexForm; PrimeForm; TOUCH3D","FDM roughly 3.5-12 rub/g for common plastics; minimum order often 500-3000 rub",42,36,"Direct substitutes for print-by-file orders; shares are assumptions for the narrow local SpareForge segment"
+Repair workshops and service centers,"ServiceRating; 2GIS","Part price usually embedded into repair invoice",28,25,"Can become partners or substitutes; have customer flow but often lack rare parts"
+Spare parts marketplaces and OEM sellers,"General market channel","Price depends on original part availability",16,14,"Strong when original part exists; weak for obsolete or unavailable plastic parts"
+DIY and home 3D printers,"General substitute","Low material cost after equipment purchase",6,5,"Relevant for enthusiasts; weak for clients without CAD and printer skills"
+International manufacturing platforms,"Xometry; Materialise","Individual quote",2,2,"Strong globally but weak in micro-local non-critical household spare parts"
+Enterprise digital inventory platforms,"Replique; Spare Parts 3D; 3YOURMIND","Enterprise pricing by request",1,1,"Strategic analogues, not mass local competitors"
+SpareForge,"Internal unit economics","Average check 2260 rub including mix of simple medium and CAD-heavy parts",0,14,"Target first-year share of calculated local SAM"
+Other and untracked channels,"Local market assumption","Varies",5,3,"Small workshops, private masters, informal channels"
