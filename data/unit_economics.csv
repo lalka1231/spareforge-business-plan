@@ -1,39 +1,11 @@
-case_id,case_name,line_item,value_rub,type,formula_or_note
-A,Small PETG part,material,58,CALCULATION,24g*2.4 RUB/g
-A,Small PETG part,electricity,2,CALCULATION,0.15kW*1.2h*8.46 RUB/kWh rounded
-A,Small PETG part,amortization,24,CALCULATION,1.2h*20 RUB/h
-A,Small PETG part,operator_labor,100,CALCULATION,0.2h*500 RUB/h
-A,Small PETG part,postprocessing,42,CALCULATION,0.083h*500 RUB/h rounded
-A,Small PETG part,packaging,50,ASSUMPTION,Small bag/box label
-A,Small PETG part,defect_load,27,CALCULATION,10% of subtotal before defect
-A,Small PETG part,total_cost,303,CALCULATION,Sum of line items
-A,Small PETG part,sale_price,900,ASSUMPTION,Target MVP price
-A,Small PETG part,gross_profit,597,CALCULATION,900-303
-A,Small PETG part,gross_margin_percent,66,CALCULATION,597/900
-B,Medium ASA part,material,350,CALCULATION,100g*3.5 RUB/g
-B,Medium ASA part,electricity,7,CALCULATION,0.2kW*4h*8.46 RUB/kWh rounded
-B,Medium ASA part,amortization,80,CALCULATION,4h*20 RUB/h
-B,Medium ASA part,operator_labor,167,CALCULATION,0.333h*500 RUB/h
-B,Medium ASA part,postprocessing,125,CALCULATION,0.25h*500 RUB/h
-B,Medium ASA part,packaging,70,ASSUMPTION,Box padding label
-B,Medium ASA part,defect_load,96,CALCULATION,12% of subtotal before defect
-B,Medium ASA part,total_cost,895,CALCULATION,Sum of line items
-B,Medium ASA part,sale_price,2200,ASSUMPTION,Target MVP price
-B,Medium ASA part,gross_profit,1305,CALCULATION,2200-895
-B,Medium ASA part,gross_margin_percent,59,CALCULATION,1305/2200
-C,Complex modeled ASA part,material,525,CALCULATION,150g*3.5 RUB/g
-C,Complex modeled ASA part,electricity,10,CALCULATION,0.2kW*6h*8.46 RUB/kWh rounded
-C,Complex modeled ASA part,amortization,120,CALCULATION,6h*20 RUB/h
-C,Complex modeled ASA part,operator_labor,250,CALCULATION,0.5h*500 RUB/h
-C,Complex modeled ASA part,CAD_modeling,1750,CALCULATION,2.5h*700 RUB/h
-C,Complex modeled ASA part,postprocessing,208,CALCULATION,0.416h*500 RUB/h rounded
-C,Complex modeled ASA part,packaging,90,ASSUMPTION,Box padding label
-C,Complex modeled ASA part,defect_load,443,CALCULATION,15% of subtotal before defect
-C,Complex modeled ASA part,total_cost,3396,CALCULATION,Sum of line items
-C,Complex modeled ASA part,sale_price,6500,ASSUMPTION,Target MVP price
-C,Complex modeled ASA part,gross_profit,3104,CALCULATION,6500-3396
-C,Complex modeled ASA part,gross_margin_percent,48,CALCULATION,3104/6500
-AVG,Weighted average order,average_ticket,2260,CALCULATION,900*45%+2200*40%+6500*15%
-AVG,Weighted average order,average_variable_cost,1003.75,CALCULATION,303*45%+895*40%+3396*15%
-AVG,Weighted average order,contribution_margin,1256.25,CALCULATION,2260-1003.75
-AVG,Weighted average order,gross_margin_percent,55.6,CALCULATION,1256.25/2260
+year,service,unit,price_ex_vat_rub,variable_cost_rub,contribution_before_usn_rub,usn_per_unit_rub,contribution_after_usn_rub,status
+2027,treatment,ha_pass,1300.0,400.0,900.0,78.0,822.0,[РАСЧЕТ]; фиксированные расходы не распределены
+2027,monitoring,ha_survey,250.0,60.0,190.0,15.0,175.0,[РАСЧЕТ]; фиксированные расходы не распределены
+2028,treatment,ha_pass,1352.0,420.0,932.0,81.12,850.88,[РАСЧЕТ]; фиксированные расходы не распределены
+2028,monitoring,ha_survey,260.0,63.0,197.0,15.6,181.4,[РАСЧЕТ]; фиксированные расходы не распределены
+2029,treatment,ha_pass,1406.08,441.0,965.08,84.3648,880.7152,[РАСЧЕТ]; фиксированные расходы не распределены
+2029,monitoring,ha_survey,270.4,66.15,204.25,16.224,188.026,[РАСЧЕТ]; фиксированные расходы не распределены
+2030,treatment,ha_pass,1462.3232,463.05,999.2732,87.739392,911.533808,[РАСЧЕТ]; фиксированные расходы не распределены
+2030,monitoring,ha_survey,281.216,69.4575,211.7585,16.87296,194.88554,[РАСЧЕТ]; фиксированные расходы не распределены
+2031,treatment,ha_pass,1520.816128,486.2025,1034.613628,91.24896768,943.36466032,[РАСЧЕТ]; фиксированные расходы не распределены
+2031,monitoring,ha_survey,292.46464,72.930375,219.534265,17.5478784,201.9863866,[РАСЧЕТ]; фиксированные расходы не распределены

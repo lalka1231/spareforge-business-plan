@@ -1,24 +1,82 @@
-id,category,item,value,unit,type,source_id,note
-A001,currency,USD to RUB,90,RUB per USD,ASSUMPTION,,Used only for MVP conversion of imported equipment/material prices
-A002,currency,EUR to RUB,100,RUB per EUR,ASSUMPTION,,Used only for rough reference; not used as official exchange rate
-A003,procurement,import/logistics markup,30,percent,ASSUMPTION,,Added to official USD prices to approximate local landed cost
-A004,electricity,Moscow electricity tariff reference,8.46,RUB per kWh,FACT,S32,Population tariff reference; business tariff may differ
-A005,production,base printer count,4,printers,ASSUMPTION,,Base microfactory configuration
-A006,production,available print hours per printer per day,18,hours,ASSUMPTION,,Allows overnight jobs but includes idle time
-A007,production,utilization factor,65,percent,ASSUMPTION,,Includes setup maintenance downtime scheduling losses
-A008,production,average print time,3.5,hours/order,ASSUMPTION,,Mixed small medium complex jobs
-A009,production,average defect rate,10,percent,ASSUMPTION,,Initial controlled MVP target
-A010,labor,operator labor rate,500,RUB/hour,ASSUMPTION,,Direct production labor used in unit economics
-A011,labor,CAD modeling labor rate,700,RUB/hour,ASSUMPTION,,Direct modeling labor for complex jobs
-A012,amortization,printer depreciation rate,20,RUB/print hour,ASSUMPTION,,Simplified allocation across useful print hours
-A013,orders,small order mix,45,percent,ASSUMPTION,,Used in weighted average order economics
-A014,orders,medium order mix,40,percent,ASSUMPTION,,Used in weighted average order economics
-A015,orders,complex order mix,15,percent,ASSUMPTION,,Used in weighted average order economics
-A016,financial,average ticket,2260,RUB/order,CALCULATION,,900*45%+2200*40%+6500*15%
-A017,financial,average variable cost,1003.75,RUB/order,CALCULATION,,303*45%+895*40%+3396*15%
-A018,financial,contribution margin per order,1256.25,RUB/order,CALCULATION,,Average ticket minus average variable cost
-A019,financial,fixed monthly OPEX,220000,RUB/month,ASSUMPTION,,Rent marketing admin software maintenance logistics reserve
-A020,financial,break-even orders,176,orders/month,CALCULATION,,220000/1256.25 rounded up
-A021,market,TAM AM services lower bound,8.53,USD bn,FACT,S03,AM Research combined AM services market 2025
-A022,market,TAM AM services upper bound,11.62,USD bn,CALCULATION,S01,48% of Wohlers 2025 AM revenue 24.2 USD bn
-A023,scope,excluded safety-critical parts,1,boolean,ASSUMPTION,,MVP excludes safety-critical regulated high-load parts
+parameter,value,unit,status,note
+initial_capex,7000000,RUB,[ДОПУЩЕНИЕ]; проектный параметр,Разработано для модели; не факт заказчика; цены без НДС; номинальные RUB
+launch_expense_t0,500000,RUB,[ДОПУЩЕНИЕ]; проектный параметр,Разработано для модели; не факт заказчика; цены без НДС; номинальные RUB
+constant_working_reserve,2000000,RUB,[ДОПУЩЕНИЕ]; проектный параметр,Разработано для модели; не факт заказчика; цены без НДС; номинальные RUB
+discount_rate,0.24,fraction,[ДОПУЩЕНИЕ]; проектный параметр,Разработано для модели; не факт заказчика; цены без НДС; номинальные RUB
+price_indexation,0.04,fraction/year,[ДОПУЩЕНИЕ]; проектный параметр,Разработано для модели; не факт заказчика; цены без НДС; номинальные RUB
+cost_indexation,0.05,fraction/year,[ДОПУЩЕНИЕ]; проектный параметр,Разработано для модели; не факт заказчика; цены без НДС; номинальные RUB
+usn_revenue_tax,0.06,fraction,[ДОПУЩЕНИЕ]; проектный параметр,Разработано для модели; не факт заказчика; цены без НДС; номинальные RUB
+vat_surcharge,0.05,fraction,[ДОПУЩЕНИЕ]; проектный параметр,Разработано для модели; не факт заказчика; цены без НДС; номинальные RUB
+treatment_price_2027,1300,RUB/ha_pass,[ДОПУЩЕНИЕ]; проектный параметр,Разработано для модели; не факт заказчика; цены без НДС; номинальные RUB
+monitoring_price_2027,250,RUB/ha_survey,[ДОПУЩЕНИЕ]; проектный параметр,Разработано для модели; не факт заказчика; цены без НДС; номинальные RUB
+treatment_variable_2027,400,RUB/ha_pass,[ДОПУЩЕНИЕ]; проектный параметр,Разработано для модели; не факт заказчика; цены без НДС; номинальные RUB
+monitoring_variable_2027,60,RUB/ha_survey,[ДОПУЩЕНИЕ]; проектный параметр,Разработано для модели; не факт заказчика; цены без НДС; номинальные RUB
+crew_count,1,crew,[ДОПУЩЕНИЕ]; проектный параметр,Разработано для модели; не факт заказчика; цены без НДС; номинальные RUB
+terminal_equipment_value,0,RUB,[ДОПУЩЕНИЕ]; проектный параметр,Разработано для модели; не факт заказчика; цены без НДС; номинальные RUB
+fixed_payroll_including_contributions,3000000,RUB/year_2027,[ДОПУЩЕНИЕ]; проектный параметр,Индексируется на 5% в год
+fixed_rent,360000,RUB/year_2027,[ДОПУЩЕНИЕ]; проектный параметр,Индексируется на 5% в год
+fixed_insurance_compliance,300000,RUB/year_2027,[ДОПУЩЕНИЕ]; проектный параметр,Индексируется на 5% в год
+fixed_marketing,240000,RUB/year_2027,[ДОПУЩЕНИЕ]; проектный параметр,Индексируется на 5% в год
+fixed_it,120000,RUB/year_2027,[ДОПУЩЕНИЕ]; проектный параметр,Индексируется на 5% в год
+fixed_administration,180000,RUB/year_2027,[ДОПУЩЕНИЕ]; проектный параметр,Индексируется на 5% в год
+treatment_volume_2027,6000,ha_pass,[ДОПУЩЕНИЕ]; проектный параметр,"CAPEX задан номинально, без дополнительной индексации; НДС — бюджетное допущение"
+monitoring_volume_2027,4000,ha_survey,[ДОПУЩЕНИЕ]; проектный параметр,"CAPEX задан номинально, без дополнительной индексации; НДС — бюджетное допущение"
+replacement_capex_2027,0,RUB,[ДОПУЩЕНИЕ]; проектный параметр,"CAPEX задан номинально, без дополнительной индексации; НДС — бюджетное допущение"
+vat_threshold_2027,20000000,RUB,[ДОПУЩЕНИЕ]; проектный параметр,"CAPEX задан номинально, без дополнительной индексации; НДС — бюджетное допущение"
+treatment_volume_2028,9000,ha_pass,[ДОПУЩЕНИЕ]; проектный параметр,"CAPEX задан номинально, без дополнительной индексации; НДС — бюджетное допущение"
+monitoring_volume_2028,6000,ha_survey,[ДОПУЩЕНИЕ]; проектный параметр,"CAPEX задан номинально, без дополнительной индексации; НДС — бюджетное допущение"
+replacement_capex_2028,300000,RUB,[ДОПУЩЕНИЕ]; проектный параметр,"CAPEX задан номинально, без дополнительной индексации; НДС — бюджетное допущение"
+vat_threshold_2028,20000000,RUB,[ДОПУЩЕНИЕ]; проектный параметр,"CAPEX задан номинально, без дополнительной индексации; НДС — бюджетное допущение"
+treatment_volume_2029,11000,ha_pass,[ДОПУЩЕНИЕ]; проектный параметр,"CAPEX задан номинально, без дополнительной индексации; НДС — бюджетное допущение"
+monitoring_volume_2029,8000,ha_survey,[ДОПУЩЕНИЕ]; проектный параметр,"CAPEX задан номинально, без дополнительной индексации; НДС — бюджетное допущение"
+replacement_capex_2029,600000,RUB,[ДОПУЩЕНИЕ]; проектный параметр,"CAPEX задан номинально, без дополнительной индексации; НДС — бюджетное допущение"
+vat_threshold_2029,20000000,RUB,[ДОПУЩЕНИЕ]; проектный параметр,"CAPEX задан номинально, без дополнительной индексации; НДС — бюджетное допущение"
+treatment_volume_2030,12000,ha_pass,[ДОПУЩЕНИЕ]; проектный параметр,"CAPEX задан номинально, без дополнительной индексации; НДС — бюджетное допущение"
+monitoring_volume_2030,9000,ha_survey,[ДОПУЩЕНИЕ]; проектный параметр,"CAPEX задан номинально, без дополнительной индексации; НДС — бюджетное допущение"
+replacement_capex_2030,900000,RUB,[ДОПУЩЕНИЕ]; проектный параметр,"CAPEX задан номинально, без дополнительной индексации; НДС — бюджетное допущение"
+vat_threshold_2030,15000000,RUB,[ДОПУЩЕНИЕ]; проектный параметр,"CAPEX задан номинально, без дополнительной индексации; НДС — бюджетное допущение"
+treatment_volume_2031,13000,ha_pass,[ДОПУЩЕНИЕ]; проектный параметр,"CAPEX задан номинально, без дополнительной индексации; НДС — бюджетное допущение"
+monitoring_volume_2031,10000,ha_survey,[ДОПУЩЕНИЕ]; проектный параметр,"CAPEX задан номинально, без дополнительной индексации; НДС — бюджетное допущение"
+replacement_capex_2031,600000,RUB,[ДОПУЩЕНИЕ]; проектный параметр,"CAPEX задан номинально, без дополнительной индексации; НДС — бюджетное допущение"
+vat_threshold_2031,10000000,RUB,[ДОПУЩЕНИЕ]; проектный параметр,"CAPEX задан номинально, без дополнительной индексации; НДС — бюджетное допущение"
+season_share_2027_01,0,fraction,[ДОПУЩЕНИЕ]; проектный параметр,Одинаковый профиль услуг; оплата в месяц выполнения; фиксированные расходы равномерно
+season_share_2027_02,0,fraction,[ДОПУЩЕНИЕ]; проектный параметр,Одинаковый профиль услуг; оплата в месяц выполнения; фиксированные расходы равномерно
+season_share_2027_03,0,fraction,[ДОПУЩЕНИЕ]; проектный параметр,Одинаковый профиль услуг; оплата в месяц выполнения; фиксированные расходы равномерно
+season_share_2027_04,0.1,fraction,[ДОПУЩЕНИЕ]; проектный параметр,Одинаковый профиль услуг; оплата в месяц выполнения; фиксированные расходы равномерно
+season_share_2027_05,0.2,fraction,[ДОПУЩЕНИЕ]; проектный параметр,Одинаковый профиль услуг; оплата в месяц выполнения; фиксированные расходы равномерно
+season_share_2027_06,0.25,fraction,[ДОПУЩЕНИЕ]; проектный параметр,Одинаковый профиль услуг; оплата в месяц выполнения; фиксированные расходы равномерно
+season_share_2027_07,0.2,fraction,[ДОПУЩЕНИЕ]; проектный параметр,Одинаковый профиль услуг; оплата в месяц выполнения; фиксированные расходы равномерно
+season_share_2027_08,0.15,fraction,[ДОПУЩЕНИЕ]; проектный параметр,Одинаковый профиль услуг; оплата в месяц выполнения; фиксированные расходы равномерно
+season_share_2027_09,0.1,fraction,[ДОПУЩЕНИЕ]; проектный параметр,Одинаковый профиль услуг; оплата в месяц выполнения; фиксированные расходы равномерно
+season_share_2027_10,0,fraction,[ДОПУЩЕНИЕ]; проектный параметр,Одинаковый профиль услуг; оплата в месяц выполнения; фиксированные расходы равномерно
+season_share_2027_11,0,fraction,[ДОПУЩЕНИЕ]; проектный параметр,Одинаковый профиль услуг; оплата в месяц выполнения; фиксированные расходы равномерно
+season_share_2027_12,0,fraction,[ДОПУЩЕНИЕ]; проектный параметр,Одинаковый профиль услуг; оплата в месяц выполнения; фиксированные расходы равномерно
+initial_depreciation_years,5,years,[ДОПУЩЕНИЕ]; проектный параметр,"Линейно с Y1, включая капитализированный запас"
+replacement_depreciation_years,3,years,[ДОПУЩЕНИЕ]; проектный параметр,Линейно с года покупки
+delay_year1_fixed,900000,RUB,[ДОПУЩЕНИЕ]; проектный параметр,"Выручка ноль; объемы и замены сдвинуты, инфляция календарная; t0 не сдвигается"
+collection_delay,0,months,[ДОПУЩЕНИЕ]; проектный параметр,Нет дебиторской задолженности; нужно проверять контрактами
+chemicals_customer_supplied,1,boolean,[ДОПУЩЕНИЕ]; проектный параметр,Стоимость препаратов не включена в тариф/переменные: клиент предоставляет; подтвердить договорами
+vat_timing,previous_year_then_next_month,model_rule,[ДОПУЩЕНИЕ]; проектный параметр,Пороги источники12;13; проверка прошлого года и начисление со следующего месяца превышения; сезонность SEASON
+treatment_fuel_logistics,150,RUB/ha_pass,[ДОПУЩЕНИЕ]; проектный параметр,Часть400; топливо и логистика
+treatment_energy,50,RUB/ha_pass,[ДОПУЩЕНИЕ]; проектный параметр,Часть400; энергия зарядки
+treatment_routine_service,130,RUB/ha_pass,[ДОПУЩЕНИЕ]; проектный параметр,Часть400; текущие расходники; не АКБ из CAPEX замен
+treatment_ppe_disposal,70,RUB/ha_pass,[ДОПУЩЕНИЕ]; проектный параметр,"Часть400; СИЗ, мойка, обращение с отходами"
+monitoring_logistics,30,RUB/ha_survey,[ДОПУЩЕНИЕ]; проектный параметр,Часть60
+monitoring_energy_service,20,RUB/ha_survey,[ДОПУЩЕНИЕ]; проектный параметр,Часть60; не амортизация
+monitoring_data,10,RUB/ha_survey,[ДОПУЩЕНИЕ]; проектный параметр,Часть60; переменная обработка данных
+compliance_insurance,120000,RUB/year,[ДОПУЩЕНИЕ]; проектный параметр,Часть300000
+compliance_legal,60000,RUB/year,[ДОПУЩЕНИЕ]; проектный параметр,Часть300000
+compliance_agronomist,120000,RUB/year,[ДОПУЩЕНИЕ]; проектный параметр,Часть300000; экономный внешний ретейнер
+admin_accounting,120000,RUB/year,[ДОПУЩЕНИЕ]; проектный параметр,Часть180000
+admin_bank_other,60000,RUB/year,[ДОПУЩЕНИЕ]; проектный параметр,Часть180000
+tam_farms,2000,farms,[ДОПУЩЕНИЕ]; проектный параметр,Неподтвержденная корзина спроса; не статистика РФ
+sam_farms,200,farms,[ДОПУЩЕНИЕ]; проектный параметр,Нужна адресная CRM база в радиусе150км
+farm_area,2000,ha,[ДОПУЩЕНИЕ]; проектный параметр,Среднее сценарной корзины
+eligible_share,0.15,fraction,[ДОПУЩЕНИЕ]; проектный параметр,"Фильтр агрономии, права и спроса"
+annual_passes_eligible,1.5,passes/ha,[ДОПУЩЕНИЕ]; проектный параметр,Сценарный TAM/SAM
+annual_monitoring_eligible,0.5,surveys/ha,[ДОПУЩЕНИЕ]; проектный параметр,Сценарный TAM/SAM
+processing_day_capacity,130,ha_pass/day,[ДОПУЩЕНИЕ]; проектный параметр,Включает переезды и подготовку
+monitoring_day_capacity,500,ha_survey/day,[ДОПУЩЕНИЕ]; проектный параметр,Последовательно с внесением
+season_weeks,22,weeks,[ДОПУЩЕНИЕ]; проектный параметр,154дня;100обработка+20мониторинг+34резерв
+founder_funding,2500000,RUB,[ДОПУЩЕНИЕ]; проектный параметр,Не определяет корпоративную долю
+investor_funding,7000000,RUB,[ДОПУЩЕНИЕ]; проектный параметр,Неподтвержденное долевое финансирование

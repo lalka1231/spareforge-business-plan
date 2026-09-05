@@ -1,0 +1,25 @@
+{
+  "verified": true,
+  "sections": 22,
+  "slides": 22,
+  "project_tasks": 13,
+  "sources_registered": 28,
+  "sources_cited": 25,
+  "npv_independent_rub": 3946443.104442741,
+  "capex_rub": 7000000,
+  "initial_funding_rub": 9500000,
+  "monthly_min_cash_rub": 950000,
+  "csv_rows": {
+    "financial_model_5y.csv": 6,
+    "assumptions.csv": 81,
+    "competitors.csv": 6,
+    "project_plan.csv": 13,
+    "sensitivity.csv": 6
+  },
+  "visual_rendering": false,
+  "limitations": [
+    "PowerPoint rendering unavailable: LibreOffice and poppler missing",
+    "Source verification is evidence-based retrieval, not legal opinion",
+    "TAM/SAM and future shares are scenarios, not independently measured markets"
+  ]
+}
