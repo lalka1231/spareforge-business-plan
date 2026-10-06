@@ -46,6 +46,13 @@ def main():
  src=json.loads((ROOT/'data/source_map.json').read_text());valid={r['id'] for r in src};cited={int(x) for x in re.findall(r'\[(\d+)\]',doc)};assert cited<=valid
  assert all((ROOT/f'docs/evidence/{i:02d}.txt').exists() for i in cited)
  ppt=ROOT/'presentations/AGROVECTOR_22_SLIDES.pptx';prs=Presentation(ppt);assert len(prs.slides)==22
+ standard=json.loads((ROOT/'data/pitch_standard.json').read_text())
+ for row in standard['canvas']:
+  for cell in row:assert cell in doc
+ actual=[[c.text for c in row.cells] for sh in prs.slides[2].shapes if sh.has_table for row in sh.table.rows]
+ assert actual==[standard['canvas_headers']]+standard['canvas']
+ for row in standard['smart']:assert row[2] in doc
+ near(total-D(1980000),1966443.104442745)
  for s in prs.slides:
   assert s.notes_slide.notes_text_frame.text.strip()
   for sh in s.shapes:
@@ -62,5 +69,6 @@ def main():
  assert not re.search(r'учебн[а-я]* (?:бизнес|проект)|студент|преподавател|задание по дисциплине',doc,re.I)
  outline=json.loads((ROOT/'presentations/slide_outline.json').read_text());assert not outline['shape_bounds_errors'];assert not outline['body_font_errors']
  result={'verified':True,'sections':22,'slides':22,'project_tasks':13,'sources_registered':len(valid),'sources_cited':len(cited),'npv_independent_rub':float(total),'capex_rub':7000000,'initial_funding_rub':9500000,'monthly_min_cash_rub':950000,'csv_rows':{x:len(load(x)) for x in ['financial_model_5y.csv','assumptions.csv','competitors.csv','project_plan.csv','sensitivity.csv']},'visual_rendering':False,'limitations':['PowerPoint rendering unavailable: LibreOffice and poppler missing','Source verification is evidence-based retrieval, not legal opinion','TAM/SAM and future shares are scenarios, not independently measured markets']}
+ result['limitations'][0]='Automatic verification is structural; rendered inspection is recorded in docs/UNIFIED_STANDARD_2026_10_06.md'
  (ROOT/'data/validation.json').write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8');print(json.dumps(result,ensure_ascii=False,indent=2))
 if __name__=='__main__':main()

@@ -1,0 +1,18 @@
+{
+  "file": "/Users/daniilvazdaev/Desktop/уник/Бизнес-планирование/AgroVector/documents/AGROVECTOR_FULL_BUSINESS_PLAN.docx",
+  "sections_22_verified": 22,
+  "appendices": 6,
+  "tables": 42,
+  "diagrams": 2,
+  "source_table_cells_preserved": true,
+  "assumptions": 81,
+  "monthly_rows": 12,
+  "unit_economics_rows": 10,
+  "stress_scenarios": 5,
+  "npv_rub": 3946443.104442745,
+  "paragraphs": 365,
+  "bytes": 217794,
+  "sha256": "3188239c4c572288d832538e5ecc9356bbe9cb7fb95a8f840dbc12031da9ec9b",
+  "visual_rendering": false,
+  "note": "DOCX structurally verified by read-back; page count and pagination not asserted without Word/LibreOffice rendering."
+}

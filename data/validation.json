@@ -18,7 +18,7 @@
   },
   "visual_rendering": false,
   "limitations": [
-    "PowerPoint rendering unavailable: LibreOffice and poppler missing",
+    "Automatic verification is structural; rendered inspection is recorded in docs/UNIFIED_STANDARD_2026_10_06.md",
     "Source verification is evidence-based retrieval, not legal opinion",
     "TAM/SAM and future shares are scenarios, not independently measured markets"
   ]

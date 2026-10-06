@@ -68,10 +68,15 @@ class Builder:
    styles[st].font.name='Times New Roman';styles[st].font.size=Pt(12)
    styles[st].paragraph_format.line_spacing=1.15;styles[st].paragraph_format.space_after=Pt(6)
   for st,size in [('Title',30),('Subtitle',16),('Heading 1',16),('Heading 2',14),('Heading 3',12)]:
-   styles[st].font.name='Times New Roman';styles[st].font.size=Pt(size);styles[st].font.color.rgb=RGBColor.from_string(GREEN)
+   styles[st].font.name='Times New Roman';styles[st].font.size=Pt(size);styles[st].font.color.rgb=RGBColor.from_string('000000')
   styles['Heading 1'].paragraph_format.page_break_before=True
   styles['Heading 1'].paragraph_format.keep_with_next=True
+  styles['Caption'].font.color.rgb=RGBColor.from_string('000000')
+  for st in ['Title','Subtitle','Heading 1','Heading 2','Heading 3','Caption']:
+   for border in styles[st].element.xpath('.//w:pBdr'):
+    border.getparent().remove(border)
   p=sec.header.paragraphs[0];p.text='АГРОВЕКТОР  |  Бизнес-план 2027–2031';p.style='Caption'
+  for run in p.runs:run.font.color.rgb=RGBColor.from_string('000000')
   p=sec.footer.paragraphs[0];p.alignment=WD_ALIGN_PARAGRAPH.CENTER;p.add_run('АгроВектор  •  ');field(p,'PAGE')
   self.doc.core_properties.title='АгроВектор — полный бизнес-план с расчетами'
   self.doc.core_properties.author='Даниил Ваздаев'
@@ -93,12 +98,12 @@ class Builder:
  def table(self,headers,data,label=None):
   # Split wide tables into repeated-key panels; every source cell is retained.
   if len(headers)>6:
-   for k in range(1,len(headers),5):
-    idx=[0]+list(range(k,min(k+5,len(headers))))
-    self.table([headers[x] for x in idx],[[r[x] for x in idx] for r in data],(label or 'Продолжение расчетной таблицы')+f' — блок {(k-1)//5+1}')
+   for k in range(1,len(headers),3):
+    idx=[0]+list(range(k,min(k+3,len(headers))))
+    self.table([headers[x] for x in idx],[[r[x] for x in idx] for r in data],(label or 'Расчетные показатели')+f' — блок {(k-1)//3+1}')
    return
-  land=len(headers)>=5;self.orient(land)
-  self.caption+=1;p=self.para(f'Таблица {self.caption}. '+(label or f'Данные раздела {self.section_no}'),'Caption');p.paragraph_format.keep_with_next=True
+  land=False;self.orient(land)
+  self.caption+=1;p=self.para(f'Таблица {self.caption}. '+(label or ' / '.join(headers[:2])),'Caption');p.paragraph_format.keep_with_next=True
   t=self.doc.add_table(rows=1,cols=len(headers));t.style='Table Grid';t.autofit=False
   width=(25.7 if land else 17)/len(headers)
   for c in t.columns:c.width=Cm(width)
@@ -122,7 +127,7 @@ class Builder:
   self.para('АГРОВЕКТОР','Title');self.para('БИЗНЕС-ПЛАН','Subtitle')
   self.para('Сервис применения сельскохозяйственных дронов для мониторинга посевов и точечного внесения удобрений, средств защиты растений и биопрепаратов','Subtitle')
   self.para('Полная версия с финансовой моделью, организационным планом и расчетными приложениями')
-  self.para('Горизонт планирования: 2027–2031\nВерсия исходных данных: 05.09.2026\nАвтор: Даниил Ваздаев')
+  self.para('Горизонт планирования: 2027–2031\nРедакция: 06.10.2026; исходные допущения: 05.09.2026\nАвтор: Даниил Ваздаев')
   self.para('Для рассмотрения агропартнером или инвестором. Проект ранней стадии; финансирование, контракты и разрешения не объявляются полученными.')
   self.doc.add_page_break();self.doc.add_heading('Содержание',level=1)
   for i,t in enumerate(titles,1):self.para(f'{i}. {t}')
