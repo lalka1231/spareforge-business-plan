@@ -52,6 +52,26 @@ def main():
  actual=[[c.text for c in row.cells] for sh in prs.slides[2].shapes if sh.has_table for row in sh.table.rows]
  assert actual==[standard['canvas_headers']]+standard['canvas']
  for row in standard['smart']:assert row[2] in doc
+ from datetime import date
+ for i,task in [(0,'A'),(1,'B'),(2,'J')]:
+  assert date.fromisoformat(by[task]['finish_date']).strftime('%d.%m.%Y')==standard['smart'][i][2]
+ assert by['D']['start_date']>by['B']['finish_date']
+ section3=doc.split('## 3. ')[1].split('## 4. ')[0]
+ assert len(re.findall(r'^\|\s*---',section3,re.M))==1
+ assert '### Доли конкретных конкурентов' not in doc
+ import xml.etree.ElementTree as ET
+ with zipfile.ZipFile(ROOT/'documents/AGROVECTOR_FULL_BUSINESS_PLAN.docx') as package:
+  root=ET.fromstring(package.read('word/document.xml'))
+  ns={'w':'http://schemas.openxmlformats.org/wordprocessingml/2006/main'}
+  word_text='\n'.join(''.join(t.text or '' for t in p.findall('.//w:t',ns)) for p in root.findall('.//w:p',ns))
+ for row in standard['smart']:assert row[2] in word_text
+ for task in plan:assert task['finish_date'] in word_text
+ assert 'Сравнение с конкретными конкурентами' not in word_text
+ assert '11 480 000' in word_text and '1,98 млн' in word_text
+ for shape in prs.slides[16].shapes:
+  if shape.has_chart:
+   for series,key in zip(shape.chart.series,['revenue_rub','ebitda_rub','free_cash_flow_rub']):
+    for actual,r in zip(series.values,rows[1:]):near(actual*1000000,r[key])
  near(total-D(1980000),1966443.104442745)
  for s in prs.slides:
   assert s.notes_slide.notes_text_frame.text.strip()
@@ -69,6 +89,6 @@ def main():
  assert not re.search(r'учебн[а-я]* (?:бизнес|проект)|студент|преподавател|задание по дисциплине',doc,re.I)
  outline=json.loads((ROOT/'presentations/slide_outline.json').read_text());assert not outline['shape_bounds_errors'];assert not outline['body_font_errors']
  result={'verified':True,'sections':22,'slides':22,'project_tasks':13,'sources_registered':len(valid),'sources_cited':len(cited),'npv_independent_rub':float(total),'capex_rub':7000000,'initial_funding_rub':9500000,'monthly_min_cash_rub':950000,'csv_rows':{x:len(load(x)) for x in ['financial_model_5y.csv','assumptions.csv','competitors.csv','project_plan.csv','sensitivity.csv']},'visual_rendering':False,'limitations':['PowerPoint rendering unavailable: LibreOffice and poppler missing','Source verification is evidence-based retrieval, not legal opinion','TAM/SAM and future shares are scenarios, not independently measured markets']}
- result['limitations'][0]='Automatic verification is structural; rendered inspection is recorded in docs/UNIFIED_STANDARD_2026_10_06.md'
+ result['limitations'][0]='Automatic verification is structural; rendered inspection is recorded in docs/RECONCILIATION_2026_10_14.md'
  (ROOT/'data/validation.json').write_text(json.dumps(result,ensure_ascii=False,indent=2),encoding='utf-8');print(json.dumps(result,ensure_ascii=False,indent=2))
 if __name__=='__main__':main()

@@ -18,11 +18,16 @@ TASKS=[
 ('M','3.4','Предсезонная готовность и ожидание погодного окна',8,['J'],'Операционный руководитель','Директор','Агроном;Клиент','Инвестор','Повторная проверка разрешений и погодного окна'),
 ('K','4.1','Первый коммерческий сезон',22,['M'],'Оператор','Операционный руководитель','Агроном;Клиент','Директор','6000 га-проходов; 4000 га-обследований'),
 ('L','4.2','Аудит сезона и решение о продолжении',2,['K'],'Бухгалтер','Директор','Агроном;Операционный руководитель','Инвестор','Факт P&L/ДДС; претензии; продления')]
-start=date(2026,9,7)
+start=date(2026,10,19)
+# Rebaseline unfinished preparation; keep the April commercial window.
+durations={'A':2,'B':6,'M':3}
+TASKS=[t[:3]+(durations.get(t[0],t[3]),)+t[4:] for t in TASKS]
 rows=[]; by={}
 for id,wbs,name,dur,pred,r,a,c,i,deliverable in TASKS:
     es=max((by[p]['ef'] for p in pred),default=0); ef=es+dur
     row=dict(id=id,wbs=wbs,task=name,duration_weeks=dur,predecessors=';'.join(pred),es=es,ef=ef,start_date=str(start+timedelta(weeks=es)),finish_date=str(start+timedelta(weeks=ef)-timedelta(days=1)),R=r,A=a,C=c,I=i,deliverable=deliverable,type='[ДОПУЩЕНИЕ]')
+    if id=='B':row['deliverable']='20 интервью; заявки на 6000 га-проходов и 4000 га-обследований'
+    if id=='D':row['deliverable']='9,5 млн руб. только для базы; КП и спрос подтверждены; при удорожании отдельное решение'
     rows.append(row);by[id]=row
 end=max(r['ef'] for r in rows)
 for row in reversed(rows):

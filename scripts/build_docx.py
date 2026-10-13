@@ -42,7 +42,7 @@ def graph_assets():
   y=top+i*73;d.text((45,y),r['id']+'  '+r['task'],font=font(26),fill='#222222')
   x=x0+int(r['es'])*scale;end=x0+int(r['ef'])*scale
   d.rectangle((x,y,end,y+38),fill='#164C38' if r['critical']=='True' else '#8EB29A')
- d.text((45,1140),'Темный цвет — критический путь. Начало: 07.09.2026. Коммерческий сезон: 12.04–12.09.2027.',font=font(25),fill='#444444')
+ d.text((45,1140),f'Темный цвет — критический путь. Начало: {plan[0]["start_date"]}. Сезон: 12.04–12.09.2027.',font=font(25),fill='#444444')
  im.save(ASSETS/'gantt.png')
  im=Image.new('RGB',(2300,950),'white');d=ImageDraw.Draw(im)
  positions={'A':(80,170),'B':(80,600),'C':(310,170),'D':(550,350),'E':(790,170),'F':(790,600),'G':(1030,170),'H':(1030,600),'I':(1270,350),'J':(1510,350),'M':(1750,350),'K':(1990,350),'L':(1990,650)};nw=180;nh=110
@@ -56,7 +56,8 @@ def graph_assets():
  for r in plan:
   x,y=positions[r['id']];col='#164C38' if r['critical']=='True' else '#658d72';d.rounded_rectangle((x,y,x+nw,y+nh),radius=12,fill=col)
   d.text((x+20,y+12),r['id'],font=font(38),fill='white');d.text((x+20,y+62),r['duration_weeks']+' нед.',font=font(25),fill='white')
- d.text((45,850),'Критический путь: A → C → D → E → G → I → J → M → K → L. Продолжительность: 55 недель.',font=font(29),fill='#'+GREEN)
+ critical=' → '.join(r['id'] for r in plan if r['critical']=='True')
+ d.text((45,850),f'Критический путь: {critical}. Продолжительность: {max(int(r["ef"]) for r in plan)} недель.',font=font(29),fill='#'+GREEN)
  im.save(ASSETS/'network.png')
 
 class Builder:
@@ -127,7 +128,7 @@ class Builder:
   self.para('АГРОВЕКТОР','Title');self.para('БИЗНЕС-ПЛАН','Subtitle')
   self.para('Сервис применения сельскохозяйственных дронов для мониторинга посевов и точечного внесения удобрений, средств защиты растений и биопрепаратов','Subtitle')
   self.para('Полная версия с финансовой моделью, организационным планом и расчетными приложениями')
-  self.para('Горизонт планирования: 2027–2031\nРедакция: 06.10.2026; исходные допущения: 05.09.2026\nАвтор: Даниил Ваздаев')
+  self.para('Горизонт планирования: 2027–2031\nРедакция: 14.10.2026; исходные допущения: 05.09.2026\nАвтор: Даниил Ваздаев')
   self.para('Для рассмотрения агропартнером или инвестором. Проект ранней стадии; финансирование, контракты и разрешения не объявляются полученными.')
   self.doc.add_page_break();self.doc.add_heading('Содержание',level=1)
   for i,t in enumerate(titles,1):self.para(f'{i}. {t}')
