@@ -34,12 +34,21 @@ def build():
  write_csv('capacity_check.csv',capacity)
  a={r['parameter']:float(r['value']) for r in csv.DictReader((ROOT/'data/assumptions.csv').open()) if r['value'].replace('.','',1).replace('-','',1).isdigit()}
  basket=a['farm_area']*a['eligible_share']*(a['annual_passes_eligible']*a['treatment_price_2027']+a['annual_monitoring_eligible']*a['monitoring_price_2027'])
- market={'classification':'[РАСЧЕТ] сценарий; не установленная емкость рынка','tam_rub':a['tam_farms']*basket,'sam_rub':a['sam_farms']*basket,'som_rub':model()[1]['revenue_rub'],'alternative_y1_rub':result['alternative_sam_mix']['first_year']['revenue_rub']}
+ market={'classification':'[РАСЧЕТ] национальный сценарий; не установленная емкость рынка','tam_rub':a['tam_russia_sown_area_2025']*a['eligible_share']*(a['annual_passes_eligible']*a['treatment_price_2027']+a['annual_monitoring_eligible']*a['monitoring_price_2027']),'sam_rub':a['sam_farms']*basket,'som_rub':model()[1]['revenue_rub'],'alternative_y1_rub':result['alternative_sam_mix']['first_year']['revenue_rub']}
  output={'revision':'2026-10-20','scenarios':result,'collection_delay':delay_summary,'market':market,'resource_warning':'Июнь 2031 требует 30 полевых дней из 30 календарных; отдых и погода не обеспечены. Поздняя база — непроверенный верхний сценарий.','limitations':['Закупочный тест не переоценивает сервис и последующие замены; комплектность и 60/50 л требуют КП','Отсрочка без авансов; УСН резервируется при поступлении; месячные остатки не показывают внутримесячные разрывы','Пять рабочих дней из семи — условный ресурсный экран; не утверждение о фактическом режиме труда']}
  (ROOT/'data/supplemental_summary.json').write_text(json.dumps(output,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
- assert abs(result['alternative_sam_mix']['npv_rub']-2080329.923065676)<.02
- assert abs(result['procurement_2990000']['npv_rub']-1966443.104442745)<.02
- assert abs(result['combined_price_volume_procurement']['npv_rub']+7545013.918174095)<.02
- assert abs(delay_summary[1]['min_cash_rub']+724800)<.02
+ # Independent read-back identities, valid under the current payroll scenario.
+ base_rows=model();base_npv=sum(r['free_cash_flow_rub']/(1.24**r['period']) for r in base_rows)
+ assert abs(result['procurement_2990000']['npv_rub']-(base_npv-1980000))<.02
+ assert abs(result['alternative_sam_mix']['first_year']['revenue_rub']-8300000)<.02
+ assert result['alternative_sam_mix']['npv_rub']<base_npv
+ assert result['combined_price_volume_procurement']['npv_rub']<base_npv-1980000
+ # Recompute delayed receipts without reusing the cashstress loop.
+ receipts=[0,0]+[r['revenue_collected_ex_vat_rub'] for r in monthly[:-2]]
+ cash=2000000;balances=[]
+ for got,m in zip(receipts,monthly):
+  cash+=got*.94-m['variable_cost_paid_rub']-m['fixed_opex_paid_rub'];balances.append(cash)
+ assert abs(delay_summary[1]['min_cash_rub']-min([2000000]+balances))<.02
+ assert abs(market['tam_rub']-24681502500)<.02
  print(json.dumps(output,ensure_ascii=False,indent=2))
 if __name__=='__main__':build()

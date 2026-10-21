@@ -2,7 +2,8 @@
 from pathlib import Path
 import json,re
 ROOT=Path(__file__).resolve().parents[1]
-text=(ROOT/'docs/FINAL_BUSINESS_PLAN.md').read_text().split('## Sources')[0]
+# Resolve the current generated sections, not the previous Markdown export.
+text='\n'.join(json.loads((ROOT/'data/sections.json').read_text()).values())
 ids={int(i) for i in re.findall(r'\[(\d+)\]',text)}
 ledger={s['id']:s for s in json.loads((ROOT/'data/source_ledger.json').read_text())['sources']}
 assert ids<=ledger.keys()

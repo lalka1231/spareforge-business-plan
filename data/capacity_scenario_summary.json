@@ -10,10 +10,10 @@
   ],
   "initial_investment_rub": 9500000,
   "discount_rate": 0.24,
-  "npv_rub": 2309588.0210458343,
-  "cumulative_net_cf_rub": 15316136.185321687,
-  "simple_payback_years": 2.7582328153769167,
-  "discounted_payback_years": 4.258717770002537,
+  "npv_rub": -2704508.245097478,
+  "cumulative_net_cf_rub": 5993291.140321688,
+  "simple_payback_years": 4.089357388695256,
+  "discounted_payback_years": null,
   "terminal_equipment_value_rub": 0,
   "terminal_book_value_not_cash_rub": 700000.0
 }

@@ -1,4 +1,9 @@
 .venv/
 __pycache__/
+~$*
 # Reproducible full-resolution rasterizations; retain PDFs/contact sheets.
 review/*/*.png
+# Obsolete cinematic proof exceeds GitHub's single-file limit; retain locally.
+review/cinematic/AGROVECTOR_CINEMATIC.pdf
+# Brainstorming is explicitly local-only.
+local_brainstorming/

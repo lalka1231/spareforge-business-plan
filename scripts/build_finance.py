@@ -12,7 +12,16 @@ ROOT = Path(__file__).resolve().parents[1]
 TREATMENT = [6000, 9000, 11000, 12000, 13000]
 MONITORING = [4000, 6000, 8000, 9000, 10000]
 REPLACEMENTS = [0, 300000, 600000, 900000, 600000]
-FIXED = {'payroll_including_contributions': 3000000, 'rent': 360000,
+DIRECTOR_GROSS_MONTHLY = 100000
+OPERATOR_GROSS_MONTHLY = 100000
+OPERATOR_COUNT = 2
+MONTHS_PER_YEAR = 12
+EMPLOYER_CONTRIBUTION_RATE = .30
+INJURY_CONTRIBUTION_RATE = .002
+PAYROLL_GROSS_ANNUAL = (DIRECTOR_GROSS_MONTHLY + OPERATOR_COUNT * OPERATOR_GROSS_MONTHLY) * MONTHS_PER_YEAR
+PAYROLL_CONTRIBUTIONS_ANNUAL = PAYROLL_GROSS_ANNUAL * (EMPLOYER_CONTRIBUTION_RATE + INJURY_CONTRIBUTION_RATE)
+PAYROLL_TOTAL_ANNUAL = PAYROLL_GROSS_ANNUAL + PAYROLL_CONTRIBUTIONS_ANNUAL
+FIXED = {'payroll_including_contributions': PAYROLL_TOTAL_ANNUAL, 'rent': 360000,
          'insurance_compliance': 300000, 'marketing': 240000,
          'it': 120000, 'administration': 180000}
 EQUIPMENT = [('agrodrones_main_and_backup_with_batteries_charging', 2, 4000000),
@@ -146,9 +155,10 @@ class FinanceTests(unittest.TestCase):
         self.assertIsNone(payback([-100, 40, 59]))
         monthly = seasonality(rows[1])
         self.assertEqual(len(monthly), 12)
-        self.assertAlmostEqual(sum(m['net_operating_cf_rub'] for m in monthly), 1432000)
-        self.assertAlmostEqual(monthly[-1]['closing_cash_rub'], 3432000)
-        self.assertAlmostEqual(min(m['closing_cash_rub'] for m in monthly), 950000)
+        self.assertAlmostEqual(sum(m['net_operating_cf_rub'] for m in monthly), rows[1]['ebitda_rub']-rows[1]['usn_tax_rub'])
+        self.assertAlmostEqual(monthly[-1]['closing_cash_rub'], 2000000+rows[1]['ebitda_rub']-rows[1]['usn_tax_rub'])
+        self.assertEqual(len(monthly), 12)
+        self.assertAlmostEqual(monthly[-1]['closing_cash_rub'], monthly[0]['opening_cash_rub'] + sum(m['net_operating_cf_rub'] for m in monthly))
 
     def test_accounting_tax_and_stress(self):
         rows = model()
@@ -168,9 +178,10 @@ class FinanceTests(unittest.TestCase):
         rows = model()
         self.assertEqual(len(rows), 6)
         self.assertEqual(rows[0]['free_cash_flow_rub'], -9_500_000)
-        self.assertAlmostEqual(rows[1]['revenue_rub'], 8_800_000)
-        self.assertAlmostEqual(rows[1]['ebitda_rub'], 1_960_000)
-        self.assertAlmostEqual(rows[1]['free_cash_flow_rub'], 1_432_000)
+        self.assertAlmostEqual(rows[1]['revenue_rub'], rows[1]['treatment_ha_passes']*rows[1]['treatment_price_ex_vat_rub'] + rows[1]['monitoring_ha_surveys']*rows[1]['monitoring_price_ex_vat_rub'])
+        self.assertAlmostEqual(rows[1]['fixed_opex_rub'], sum(FIXED.values()))
+        self.assertAlmostEqual(rows[1]['free_cash_flow_rub'], rows[1]['ebitda_rub']-rows[1]['usn_tax_rub']-rows[1]['additional_capex_rub'])
+        self.assertIsNone(payback([-100, 40, 59]))
 
 
 def write_csv(name, records):
@@ -210,7 +221,7 @@ def build():
     def assumption(key, value, unit, note):
         assumptions.append(dict(parameter=key, value=value, unit=unit,
                                 status='[ДОПУЩЕНИЕ]; проектный параметр', note=note))
-    for key, value, unit in [('initial_capex',7000000,'RUB'), ('launch_expense_t0',500000,'RUB'),
+    for key, value, unit in [('payroll_director_gross_monthly',DIRECTOR_GROSS_MONTHLY,'RUB/month'), ('payroll_operator_gross_monthly',OPERATOR_GROSS_MONTHLY,'RUB/month'), ('payroll_operator_count',OPERATOR_COUNT,'employees'), ('payroll_months',MONTHS_PER_YEAR,'months/year'), ('payroll_employer_contribution_rate',EMPLOYER_CONTRIBUTION_RATE,'fraction'), ('payroll_injury_contribution_rate',INJURY_CONTRIBUTION_RATE,'fraction; assumption pending hazard class confirmation'), ('payroll_gross_annual',PAYROLL_GROSS_ANNUAL,'RUB/year'), ('payroll_contributions_annual',PAYROLL_CONTRIBUTIONS_ANNUAL,'RUB/year'), ('initial_capex',7000000,'RUB'), ('launch_expense_t0',500000,'RUB'),
                              ('constant_working_reserve',2000000,'RUB'), ('discount_rate',RATE,'fraction'),
                              ('price_indexation',.04,'fraction/year'), ('cost_indexation',.05,'fraction/year'),
                              ('usn_revenue_tax',.06,'fraction'), ('vat_surcharge',.05,'fraction'),
@@ -247,7 +258,7 @@ def build():
         ('compliance_agronomist',120000,'RUB/year','Часть300000; экономный внешний ретейнер'),
         ('admin_accounting',120000,'RUB/year','Часть180000'),
         ('admin_bank_other',60000,'RUB/year','Часть180000'),
-        ('tam_farms',2000,'farms','Неподтвержденная корзина спроса; не статистика РФ'),
+        ('tam_russia_sown_area_2025',79298000,'ha','Общероссийский весенний учет2025 по вторичной публикации Агроэксперт/Росстат, источник33; база, не площадь рынка услуг'),
         ('sam_farms',200,'farms','Нужна адресная CRM база в радиусе150км'),
         ('farm_area',2000,'ha','Среднее сценарной корзины'),
         ('eligible_share',.15,'fraction','Фильтр агрономии, права и спроса'),
@@ -263,17 +274,17 @@ def build():
                    base=metrics(rows), sensitivity=sensitivity, yearly_scenarios=scenario_rows,
                    first_year_monthly=monthly,
                    cash_runway=dict(initial_operating_cash_rub=2000000, capex_recharged=False,
-                                    no_revenue_fixed_burn_per_month_rub=350000,
-                                    no_revenue_runway_months=2000000/350000,
+                                    no_revenue_fixed_burn_per_month_rub=sum(FIXED.values())/12,
+                                    no_revenue_runway_months=2000000/(sum(FIXED.values())/12),
                                     no_revenue_first_negative_month=6,
                                     base_minimum_month_end_cash_rub=min(m['closing_cash_rub'] for m in monthly),
                                     base_first_negative_month=next((m['month'] for m in monthly if m['closing_cash_rub']<0),None),
                                     base_year_end_cash_rub=monthly[-1]['closing_cash_rub'],
                                     base_additional_funding_required_rub=max(0,-min(m['closing_cash_rub'] for m in monthly))),
                    break_even_2027=dict(after_usn_contribution_rub=rows[1]['contribution_rub']-rows[1]['usn_tax_rub'],
-                                        proportional_volume_factor=4200000/(rows[1]['contribution_rub']-rows[1]['usn_tax_rub']),
-                                        treatment_ha_passes=6000*4200000/5632000,
-                                        monitoring_ha_surveys=4000*4200000/5632000),
+                                        proportional_volume_factor=rows[1]['fixed_opex_rub']/(rows[1]['contribution_rub']-rows[1]['usn_tax_rub']),
+                                        treatment_ha_passes=rows[1]['treatment_ha_passes']*rows[1]['fixed_opex_rub']/(rows[1]['contribution_rub']-rows[1]['usn_tax_rub']),
+                                        monitoring_ha_surveys=rows[1]['monitoring_ha_surveys']*rows[1]['fixed_opex_rub']/(rows[1]['contribution_rub']-rows[1]['usn_tax_rub'])),
                    limitations=['Нет подтвержденных контрактов, цен поставщиков и производительности бригады',
                                 'НДС сверх цены должен приниматься покупателем; нет моделирования снижения спроса из-за НДС',
                                 'Погода, регуляторные ограничения, логистика и дебиторка могут сорвать сезон',
@@ -283,6 +294,7 @@ def build():
         row['classification']='[РАСЧЕТ]; входные параметры [ДОПУЩЕНИЕ]'
     write_csv('financial_model_5y.csv', rows)
     write_csv('monthly_cashflow_2027.csv', monthly)
+    write_csv('payroll2027.csv', [dict(year=2027, role='director', headcount=1, gross_monthly_rub=DIRECTOR_GROSS_MONTHLY, months=MONTHS_PER_YEAR, gross_annual_rub=DIRECTOR_GROSS_MONTHLY*MONTHS_PER_YEAR, contributions_rate=EMPLOYER_CONTRIBUTION_RATE+INJURY_CONTRIBUTION_RATE, contributions_annual_rub=DIRECTOR_GROSS_MONTHLY*MONTHS_PER_YEAR*(EMPLOYER_CONTRIBUTION_RATE+INJURY_CONTRIBUTION_RATE), total_employer_cost_annual_rub=DIRECTOR_GROSS_MONTHLY*MONTHS_PER_YEAR*(1+EMPLOYER_CONTRIBUTION_RATE+INJURY_CONTRIBUTION_RATE)), dict(year=2027, role='operator', headcount=OPERATOR_COUNT, gross_monthly_rub=OPERATOR_GROSS_MONTHLY, months=MONTHS_PER_YEAR, gross_annual_rub=OPERATOR_COUNT*OPERATOR_GROSS_MONTHLY*MONTHS_PER_YEAR, contributions_rate=EMPLOYER_CONTRIBUTION_RATE+INJURY_CONTRIBUTION_RATE, contributions_annual_rub=OPERATOR_COUNT*OPERATOR_GROSS_MONTHLY*MONTHS_PER_YEAR*(EMPLOYER_CONTRIBUTION_RATE+INJURY_CONTRIBUTION_RATE), total_employer_cost_annual_rub=OPERATOR_COUNT*OPERATOR_GROSS_MONTHLY*MONTHS_PER_YEAR*(1+EMPLOYER_CONTRIBUTION_RATE+INJURY_CONTRIBUTION_RATE))])
     write_csv('assumptions.csv', assumptions)
     write_csv('equipment.csv', [dict(item=name, quantity=qty, total_cost_rub=cost,
                                    depreciation_years=5, annual_depreciation_rub=cost/5,
@@ -326,7 +338,7 @@ NPV = CF0 + Σ CFt / 1,24^t. Годовые денежные потоки дис
 ## Месячная сезонность и cash runway
 [ДОПУЩЕНИЕ] Апрель/май/июнь/июль/август/сентябрь = 10/20/25/20/15/10% годовых объемов обоих услуг, остальные месяцы ноль; соответствует сезону 12 апреля — 12 сентября в Ганте. Деньги получены в месяц выполнения, переменные оплачены тогда же; фиксированные 350 000 RUB/месяц. УСН резервируется ежемесячно (не календарь платежей). Первый год освобожден от НДС по бюджетному правилу. Нет дебиторки, отсрочек, авансов и ежемесячного CAPEX. Старт месячной таблицы — **2 млн после оплаты CAPEX и запуска**, повторного вычитания 7,5 млн нет. Остатки проверены на конец месяца, внутримесячный кассовый разрыв не исключен.
 
-Runway без выручки = 2 млн / 350 тыс.; это отдельный статический стресс, не срок жизни базового бизнеса. Месячные остатки включают накопленную прибыль, а не требуют держать все 2 млн заблокированными каждый день. При полном отсутствии поступлений деньги заканчиваются в шестом месяце. Полный возврат резерва в Y5 — предположение годового проекта, не дополнительный доход первого года.
+Runway без выручки рассчитывается как начальный резерв, деленный на месячный фиксированный OPEX после изменения payroll; это отдельный статический стресс, не срок жизни базового бизнеса. Месячные остатки включают накопленную прибыль, а не требуют держать весь резерв заблокированным каждый день. Полный возврат резерва в Y5 — предположение годового проекта, не дополнительный доход первого года.
 
 ## Рассчитанные результаты
 '''
@@ -342,7 +354,7 @@ Runway без выручки = 2 млн / 350 тыс.; это отдельный
     method += '\n| Месяц 2027 | Доля | Поступления без НДС | Операционный CF | Остаток денег |\n|---|---:|---:|---:|---:|\n'
     for m in monthly:
         method += f"| {m['month']} | {m['share']:.0%} | {m['revenue_collected_ex_vat_rub']:,.0f} | {m['net_operating_cf_rub']:,.0f} | {m['closing_cash_rub']:,.0f} |\n"
-    method += f"\nRunway без выручки: {2000000/350000:.3f} месяца; минимум базового остатка: {summary['cash_runway']['base_minimum_month_end_cash_rub']:,.0f} RUB; конец Y1: {monthly[-1]['closing_cash_rub']:,.0f} RUB.\n"
+    method += f"\nRunway без выручки: {2000000/(sum(FIXED.values())/12):.3f} месяца; минимум базового остатка: {summary['cash_runway']['base_minimum_month_end_cash_rub']:,.0f} RUB; конец Y1: {monthly[-1]['closing_cash_rub']:,.0f} RUB.\n"
     method += '\n## Слабые места\n' + '\n'.join('- '+x+'.' for x in summary['limitations'])
     method += '\n- Положительный NPV базы (если получен) не доказывает инвестиционную готовность: необходимо подтвердить объемы, приемлемость тарифов и сезонную пропускную способность одной бригады. Отрицательные стрессовые NPV не сглаживаются.\n- Резерв не индексируется и не растет с выручкой; дебиторка или перенос начала сезона способны потребовать дополнительного финансирования.\n'
     (ROOT/'docs').mkdir(exist_ok=True)

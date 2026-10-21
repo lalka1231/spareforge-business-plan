@@ -29,6 +29,12 @@ def load_csv(name):
     with (ROOT / 'data' / name).open(encoding='utf-8-sig', newline='') as f:
         return list(csv.DictReader(f))
 
+def payback_label(value):
+    return 'не достигнута за 5 лет' if value is None else f'{value:.2f}'.replace('.', ',') + ' года'
+
+def payroll_total(rows, key):
+    return sum(float(row[key]) for row in rows)
+
 def get_titles():
     tree = ast.parse((ROOT / 'scripts/build_documents.py').read_text(encoding='utf-8'))
     for node in tree.body:
@@ -189,6 +195,9 @@ class Deck:
 
 def build():
     d=Deck(); f=json.loads((ROOT/'data/finance_summary.json').read_text()); base=f['base']; years=[r for r in f['yearly_scenarios']['base'] if r['period']>0]
+    payroll=load_csv('payroll2027.csv')
+    payroll_gross=payroll_total(payroll,'gross_annual_rub')
+    payroll_cost=payroll_total(payroll,'total_employer_cost_annual_rub')
     tasks=load_csv('project_plan.csv'); assert len(tasks)==13
     byid={t['id']:t for t in tasks}; short={'A':'Правовой gate','B':'Спрос / заявки','C':'ООО и договоры','D':'Финансирование','E':'Закупка','F':'Обучение','G':'Готовность БВС','H':'SOP / CRM','I':'Испытания','J':'Договоры сезона','M':'Ожидание окна','K':'Сезон','L':'Аудит'}
     critical=[t['id'] for t in tasks if t['critical'].lower()=='true']; duration=max(int(t['ef']) for t in tasks)
@@ -272,7 +281,7 @@ def build():
 
     s=d.slide(12)
     d.text(s,'3 FTE',.65,1.92,4,1,44,LIME,True)
-    d.text(s,'3,0 млн ₽ / год — бюджет штатного труда; требует проверки рынка и начислений',3.5,2.02,9.1,.86,20,WHITE)
+    d.text(s,f'{payroll_cost/1e6:.2f} млн ₽ / год — полная стоимость работодателя; gross {payroll_gross/1e6:.2f} млн ₽',3.5,2.02,9.1,.86,20,WHITE)
     d.table(s,['Штатная роль','Функции'],[['Директор','Продажи, договоры, деньги и партнеры'],['Оператор / операционный руководитель','Календарь, техника, безопасность и наставник'],['Второй оператор / помощник','Подготовка; мониторинг в отдельных окнах']],y=3.02,h=1.91,widths=[4.3,7.93],size=18)
     d.text(s,'Вне штата: агроном, юрист, бухгалтер и учебный партнер — оплачиваемые услуги.',.65,5.15,12,.6,18,MUTED)
     d.banner(s,'После СВО: добровольный отбор → гражданское обучение → наставник → проверка компетенций')
@@ -347,7 +356,7 @@ def build():
     scenarios=f['sensitivity']
     d.chart(s,[labels[t['scenario']] for t in scenarios],[('NPV',[t['npv_rub']/1e6 for t in scenarios])],.55,1.87,7.03,4.13,XL_CHART_TYPE.BAR_CLUSTERED)
     d.table(s,['Сценарий','NPV, млн ₽'],[[labels[t['scenario']],million(t['npv_rub'],3)] for t in scenarios],x=7.81,y=1.87,w=4.97,h=2.92,widths=[3.42,1.55],size=16)
-    d.text(s,f'Окупаемость базы: {base["simple_payback_years"]:.2f} года\nДисконтированная: {base["discounted_payback_years"]:.2f} года'.replace('.',','),7.93,5.05,4.62,.95,18,WHITE)
+    d.text(s,f'Окупаемость базы: {payback_label(base["simple_payback_years"])}\nДисконтированная: {payback_label(base["discounted_payback_years"])}',7.93,5.05,4.62,.95,18,WHITE)
     ext=json.loads((ROOT/'data/supplemental_summary.json').read_text())
     d.banner(s,'Комбинированный стресс: NPV '+million(ext['scenarios']['combined_price_volume_procurement']['npv_rub'])+' млн ₽; цена −10%, объем −25%, CAPEX +1,98 млн',6.27)
 
@@ -369,7 +378,8 @@ def build():
     s=d.slide(21,'[РАСЧЕТ] Финансовые KPI базы  •  [ДОПУЩЕНИЕ] Плановые операционные пороги')
     d.note_extras[20]='2,5 + 7,0 млн покрывают только базовые 9,5 млн. При закупочном стрессе нужно еще 1,98 млн; при неизменном вкладе учредителя внешний вклад 8,98 млн. Дополнительное финансирование не подтверждено. Без нового решения закупка не проводится.'
     r=years[0]
-    metrics_cards=[('8,8 млн ₽','Выручка 2027','6000 га-проходов + 4000 обследований'),(f'{r["ebitda_rub"]/r["revenue_rub"]*100:.1f}%'.replace('.',','),'Маржа EBITDA 2027','До амортизации и налога УСН'),('1,432 млн ₽','Свободный CF 2027','После налога; до выплат инвесторам'),('13 000','Потолок га-проходов','100 дней × 130 га; подтвердить пилотом'),('10 клиентов','Портфель первого сезона','Договоры; календарь; актирование'),('0 работ','Без требуемой готовности','Учитывать также предотвращенные события')]
+    treatment_volume=r['treatment_ha_passes']; monitoring_volume=r['monitoring_ha_surveys']
+    metrics_cards=[(f'{r["revenue_rub"]/1e6:.2f} млн ₽','Выручка 2027',f'{treatment_volume:,.0f} га-проходов + {monitoring_volume:,.0f} обследований'.replace(',',' ')),(f'{r["ebitda_rub"]/r["revenue_rub"]*100:.1f}%'.replace('.',','),'Маржа EBITDA 2027','До амортизации и налога УСН'),(f'{r["free_cash_flow_rub"]/1e6:.3f} млн ₽','Свободный CF 2027','После налога; до выплат инвесторам'),(f'{treatment_volume:,.0f}'.replace(',',' '),'План га-проходов','Объем из финансового сценария'),('10 клиентов','Портфель первого сезона','Договоры; календарь; актирование'),('0 работ','Без требуемой готовности','Учитывать также предотвращенные события')]
     for i,(num,title,body) in enumerate(metrics_cards):
         x=.55+(i%3)*4.15; y=1.88+(i//3)*2.25
         d.box(s,x,y,3.93,2.06,WHITE,True); d.text(s,num,x+.2,y+.18,3.53,.58,29,FOREST,True); d.text(s,title,x+.2,y+.83,3.53,.43,18,FOREST,True); d.text(s,body,x+.2,y+1.36,3.53,.61,16)

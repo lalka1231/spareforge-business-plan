@@ -8,10 +8,10 @@
       },
       "initial_investment_rub": 9500000,
       "discount_rate": 0.24,
-      "npv_rub": 2080329.9230656782,
-      "cumulative_net_cf_rub": 15610727.398760008,
-      "simple_payback_years": 2.957077010165211,
-      "discounted_payback_years": 4.448640204459723,
+      "npv_rub": -2933766.3430776345,
+      "cumulative_net_cf_rub": 6287882.353760007,
+      "simple_payback_years": 4.203452827853928,
+      "discounted_payback_years": null,
       "terminal_equipment_value_rub": 0,
       "terminal_book_value_not_cash_rub": 700000.0,
       "first_year": {
@@ -28,12 +28,12 @@
         "revenue_rub": 8300000.0,
         "variable_cost_rub": 2520000.0,
         "contribution_rub": 5780000.0,
-        "fixed_opex_rub": 4200000.0,
-        "ebitda_rub": 1580000.0,
+        "fixed_opex_rub": 5887200.0,
+        "ebitda_rub": -107200.0,
         "depreciation_rub": 1400000.0,
-        "ebit_rub": 180000.0,
+        "ebit_rub": -1507200.0,
         "usn_tax_rub": 498000.0,
-        "accounting_profit_rub": -318000.0,
+        "accounting_profit_rub": -2005200.0,
         "vat_threshold_assumed_rub": 20000000,
         "vat_collected_rub": 0,
         "vat_remitted_rub": 0,
@@ -43,11 +43,11 @@
         "launch_cost_rub": 0,
         "reserve_funding_rub": 0,
         "reserve_return_rub": 0,
-        "free_cash_flow_rub": 1082000.0,
+        "free_cash_flow_rub": -605200.0,
         "discount_factor": 0.8064516129032259,
-        "present_value_rub": 872580.6451612903,
-        "cumulative_cf_rub": -8418000.0,
-        "cumulative_discounted_cf_rub": -8627419.35483871
+        "present_value_rub": -488064.51612903224,
+        "cumulative_cf_rub": -10105200.0,
+        "cumulative_discounted_cf_rub": -9988064.516129032
       }
     },
     "procurement_2990000": {
@@ -57,10 +57,10 @@
       },
       "initial_investment_rub": 11480000,
       "discount_rate": 0.24,
-      "npv_rub": 1966443.1044427445,
-      "cumulative_net_cf_rub": 17458723.95616001,
-      "simple_payback_years": 3.0072297641504755,
-      "discounted_payback_years": 4.561125668105354,
+      "npv_rub": -3047653.16170057,
+      "cumulative_net_cf_rub": 8135878.911160005,
+      "simple_payback_years": 4.060020923325429,
+      "discounted_payback_years": null,
       "terminal_equipment_value_rub": 0,
       "terminal_book_value_not_cash_rub": 700000.0,
       "first_year": {
@@ -77,12 +77,12 @@
         "revenue_rub": 8800000.0,
         "variable_cost_rub": 2640000.0,
         "contribution_rub": 6160000.0,
-        "fixed_opex_rub": 4200000.0,
-        "ebitda_rub": 1960000.0,
+        "fixed_opex_rub": 5887200.0,
+        "ebitda_rub": 272800.0,
         "depreciation_rub": 1796000.0,
-        "ebit_rub": 164000.0,
+        "ebit_rub": -1523200.0,
         "usn_tax_rub": 528000.0,
-        "accounting_profit_rub": -364000.0,
+        "accounting_profit_rub": -2051200.0,
         "vat_threshold_assumed_rub": 20000000,
         "vat_collected_rub": 0,
         "vat_remitted_rub": 0,
@@ -92,11 +92,11 @@
         "launch_cost_rub": 0,
         "reserve_funding_rub": 0,
         "reserve_return_rub": 0,
-        "free_cash_flow_rub": 1432000.0,
+        "free_cash_flow_rub": -255200.0,
         "discount_factor": 0.8064516129032259,
-        "present_value_rub": 1154838.7096774194,
-        "cumulative_cf_rub": -10048000.0,
-        "cumulative_discounted_cf_rub": -10325161.290322581
+        "present_value_rub": -205806.45161290324,
+        "cumulative_cf_rub": -11735200.0,
+        "cumulative_discounted_cf_rub": -11685806.451612903
       }
     },
     "combined_price_volume_procurement": {
@@ -108,8 +108,8 @@
       },
       "initial_investment_rub": 11480000,
       "discount_rate": 0.24,
-      "npv_rub": -7545013.918174094,
-      "cumulative_net_cf_rub": -1524587.017091998,
+      "npv_rub": -12559110.184317408,
+      "cumulative_net_cf_rub": -10847432.062091997,
       "simple_payback_years": null,
       "discounted_payback_years": null,
       "terminal_equipment_value_rub": 0,
@@ -128,12 +128,12 @@
         "revenue_rub": 5940000.0,
         "variable_cost_rub": 1980000.0,
         "contribution_rub": 3960000.0,
-        "fixed_opex_rub": 4200000.0,
-        "ebitda_rub": -240000.0,
+        "fixed_opex_rub": 5887200.0,
+        "ebitda_rub": -1927200.0,
         "depreciation_rub": 1796000.0,
-        "ebit_rub": -2036000.0,
+        "ebit_rub": -3723200.0,
         "usn_tax_rub": 356400.0,
-        "accounting_profit_rub": -2392400.0,
+        "accounting_profit_rub": -4079600.0,
         "vat_threshold_assumed_rub": 20000000,
         "vat_collected_rub": 0,
         "vat_remitted_rub": 0,
@@ -143,37 +143,37 @@
         "launch_cost_rub": 0,
         "reserve_funding_rub": 0,
         "reserve_return_rub": 0,
-        "free_cash_flow_rub": -596400.0,
+        "free_cash_flow_rub": -2283600.0,
         "discount_factor": 0.8064516129032259,
-        "present_value_rub": -480967.7419354839,
-        "cumulative_cf_rub": -12076400.0,
-        "cumulative_discounted_cf_rub": -11960967.741935484
+        "present_value_rub": -1841612.9032258065,
+        "cumulative_cf_rub": -13763600.0,
+        "cumulative_discounted_cf_rub": -13321612.903225806
       }
     }
   },
   "collection_delay": [
     {
       "delay_months": 1,
-      "min_cash_rub": 285200.0,
-      "additional_liquidity_rub": 0,
-      "year_end_cash_rub": 3432000.0
+      "min_cash_rub": -417800.0,
+      "additional_liquidity_rub": 417800.0,
+      "year_end_cash_rub": 1744800.0
     },
     {
       "delay_months": 2,
-      "min_cash_rub": -724800.0,
-      "additional_liquidity_rub": 724800.0,
-      "year_end_cash_rub": 3432000.0
+      "min_cash_rub": -1568400.0,
+      "additional_liquidity_rub": 1568400.0,
+      "year_end_cash_rub": 1744800.0
     },
     {
       "delay_months": 3,
-      "min_cash_rub": -1602800.0,
-      "additional_liquidity_rub": 1602800.0,
-      "year_end_cash_rub": 3432000.0
+      "min_cash_rub": -2587000.0,
+      "additional_liquidity_rub": 2587000.0,
+      "year_end_cash_rub": 1744799.9999999998
     }
   ],
   "market": {
-    "classification": "[РАСЧЕТ] сценарий; не установленная емкость рынка",
-    "tam_rub": 1245000000.0,
+    "classification": "[РАСЧЕТ] национальный сценарий; не установленная емкость рынка",
+    "tam_rub": 24681502500.0,
     "sam_rub": 124500000.0,
     "som_rub": 8800000.0,
     "alternative_y1_rub": 8300000.0

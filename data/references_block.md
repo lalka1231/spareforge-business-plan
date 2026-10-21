@@ -25,3 +25,8 @@
 [30] https://www.xa.com/en/p100pro/p100prospecs — XAG P100 Pro: официальная спецификация
 [31] https://16.fsvps.gov.ru/news/s-1-marta-2026-goda-vstupili-v-zakonnuyu-silu-izmeneniya-v-zakonodatelstvo-rf-kasayushhiesya-primeneniya-pesticzidov-i-agrohimikatov — Россельхознадзор: уведомления и ФГИС Сатурн с 01.03.2026
 [32] http://publication.pravo.gov.ru/Document/View/1600202211300002 — Указ Республики Татарстан от 25.11.2022 № УП-813
+[33] https://agroexpert.press/numbers/posevnaya-ploshhad-v-2025-godu-snizilas-na-111-do-79298-mln-ga-rosstat — Агроэксперт: общероссийская посевная площадь 2025 по данным Росстата
+[34] https://zur-kazan.ru/news/article/srednemesyachnaya-zarplata-v-tatarstane-vozrosla-do-98-479-rubley-131310 — Журнал Казань: средняя зарплата Татарстана, январь–июнь 2026
+[35] https://www.nalog.gov.ru/rn77/news/activities_fts/16577139 — ФНС: единый тариф взносов и предельная база 2026
+[36] https://agrdron.ru/about — Агродроны ЮФО: цена услуги от 900 руб./га
+[37] https://secrets.tbank.ru/blogi-kompanij/pro-tekhnologii-v-polyah — Леонид Гоминюк, ООО Купец: авторский диапазон стоимости, 07.05.2025

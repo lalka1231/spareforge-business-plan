@@ -1,3 +1,5 @@
+> **Редакция 21.10.2026:** актуальны [карта исполнения](REFERENCE_REVISION_2026_10_21.md), [README](../README.md) и `presentations/REFERENCE_REVISION_ACCEPTANCE.json`. Нижележащие сведения о прежних числах и протоколах — история; новая зарплатная база дает отрицательныйNPV.
+
 # AgroVector — фотофоны и настоящий Morph
 
 Актуальный файл: `presentations/AGROVECTOR_PHOTO_MORPH.pptx`. Предыдущая CINEMATIC-версия с видео не является вариантом исполнения последнего задания.
