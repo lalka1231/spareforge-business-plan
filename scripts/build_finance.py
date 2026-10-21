@@ -22,7 +22,7 @@ EQUIPMENT = [('agrodrones_main_and_backup_with_batteries_charging', 2, 4000000),
 RATE = .24
 
 
-def model(price_factor=1., volume_factor=1., variable_factor=1., delay=False, treatment_price_factor=1.):
+def model(price_factor=1., volume_factor=1., variable_factor=1., delay=False, treatment_price_factor=1., monitoring_ratio=None, initial_capex=7000000):
     rows = []
     replacements = ([0] + REPLACEMENTS[:4]) if delay else REPLACEMENTS
     previous_revenue = 0
@@ -30,6 +30,7 @@ def model(price_factor=1., volume_factor=1., variable_factor=1., delay=False, tr
         age = i - int(delay)
         treat = TREATMENT[age] * volume_factor if age >= 0 else 0
         monitor = MONITORING[age] * volume_factor if age >= 0 else 0
+        if monitoring_ratio is not None: monitor = treat * monitoring_ratio
         pt, pm = 1300 * 1.04**i * price_factor * treatment_price_factor, 250 * 1.04**i * price_factor
         vt, vm = 400 * 1.05**i * variable_factor, 60 * 1.05**i * variable_factor
         revenue_t, revenue_m = treat * pt, monitor * pm
@@ -47,7 +48,7 @@ def model(price_factor=1., volume_factor=1., variable_factor=1., delay=False, tr
             cumulative_revenue += monthly_revenue
             if cumulative_revenue > threshold: vat_active = True
         previous_revenue = revenue
-        depreciation = 7000000 / 5 + sum(replacements[j] / 3 for j in range(i+1) if i-j < 3)
+        depreciation = initial_capex / 5 + sum(replacements[j] / 3 for j in range(i+1) if i-j < 3)
         ebitda = revenue - variable - fixed
         tax = revenue * .06
         recovery = 2000000 if i == 4 else 0
@@ -68,9 +69,9 @@ def model(price_factor=1., volume_factor=1., variable_factor=1., delay=False, tr
                          reserve_return_rub=recovery, free_cash_flow_rub=cf,
                          discount_factor=1/(1+RATE)**(i+1), present_value_rub=cf/(1+RATE)**(i+1)))
     initial = dict.fromkeys(rows[0], 0)
-    initial.update(year=2026, period=0, initial_capex_rub=7000000, launch_cost_rub=500000,
-                   reserve_funding_rub=2000000, free_cash_flow_rub=-9500000,
-                   discount_factor=1, present_value_rub=-9500000)
+    initial.update(year=2026, period=0, initial_capex_rub=initial_capex, launch_cost_rub=500000,
+                   reserve_funding_rub=2000000, free_cash_flow_rub=-(initial_capex+2500000),
+                   discount_factor=1, present_value_rub=-(initial_capex+2500000))
     rows.insert(0, initial)
     cumulative = discounted = 0
     for row in rows:
@@ -113,7 +114,7 @@ def metrics(rows) -> dict:
                 simple_payback_years=adjusted_payback(flows),
                 discounted_payback_years=adjusted_payback(discounted, True),
                 terminal_equipment_value_rub=0,
-                terminal_book_value_not_cash_rub=7000000+sum(r['additional_capex_rub'] for r in rows)-sum(r['depreciation_rub'] for r in rows))
+                terminal_book_value_not_cash_rub=rows[0]['initial_capex_rub']+sum(r['additional_capex_rub'] for r in rows)-sum(r['depreciation_rub'] for r in rows))
 
 
 def seasonality(year1):
@@ -313,7 +314,7 @@ CF = EBITDA − УСН − CAPEX замен + возврат резерва. Р�
 NPV = CF0 + Σ CFt / 1,24^t. Годовые денежные потоки дисконтируются на конец года. Окупаемость: первое пересечение нуля накопленным CF (либо дисконтированным CF); доля года — условная линейная интерполяция годового операционного потока, не точная календарная дата. Возврат резерва не размазывается по Y5: если без него пересечения нет, окупаемость только в 5,00. `null` в JSON / пусто в CSV означает «не достигнута за 5 лет», экстраполяции нет.
 
 ## НДС: бюджет, не налоговый календарь
-[ФАКТ] Опубликованный в июле 2026 года график освобождения от НДС на УСН: 2027–2029 — 20 млн, 2030 — 15 млн, 2031 — 10 млн руб.; источники [12][13] в реестре. [ДОПУЩЕНИЕ] Ставка после утраты освобождения — 5% сверх цены, без вычета входного НДС, при сохранении права на этот режим. [РАСЧЕТ] Алгоритм проверяет выручку предыдущего года на начало года; затем накопленную месячную выручку и начисляет НДС со следующего месяца после превышения. В базе 2027–2029 освобождены, с января2030 возникает обязанность из-за выручки2029 выше15млн. Месячная сезонность для теста порога одинакова во все годы. Сроки перечисления налога и авансовые счета-фактуры упрощены; финальный налоговый календарь утверждает бухгалтер.
+[ДОПУЩЕНИЕ] Бюджет использует график из архивного чтения июля/сентября 2026: 2027–2029 — 20 млн, 2030 — 15 млн, 2031 — 10 млн руб.; источники [12][13] в реестре. На 20.10.2026 полный налоговый первоисточник повторно недоступен; параметры не объявляются свежим правовым подтверждением и подлежат проверке бухгалтером. [ДОПУЩЕНИЕ] Ставка после утраты освобождения — 5% сверх цены, без вычета входного НДС, при сохранении права на этот режим. [РАСЧЕТ] Алгоритм проверяет выручку предыдущего года на начало года; затем накопленную месячную выручку и начисляет НДС со следующего месяца после превышения. В базе 2027–2029 освобождены, с января2030 возникает обязанность из-за выручки2029 выше15млн. Месячная сезонность для теста порога одинакова во все годы. Сроки перечисления налога и авансовые счета-фактуры упрощены; финальный налоговый календарь утверждает бухгалтер.
 
 НДС добавляется сверх тарифа: платеж клиента = выручка × 1,05 в облагаемые годы. Собранный НДС = перечисленный НДС, транзит исключен из выручки, базы УСН, EBITDA и CF. Входящие расходы — полный денежный расход, возмещения входного НДС нет. Такой транзит не снижает маржу, но перенос роста цены на клиента не гарантирован. Сроки перечисления НДС не моделируются.
 

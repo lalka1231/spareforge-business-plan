@@ -1,5 +1,4 @@
-__pycache__/
-*.pyc
 .venv/
-.DS_Store
-presentations/render/
+__pycache__/
+# Reproducible full-resolution rasterizations; retain PDFs/contact sheets.
+review/*/*.png

@@ -1,0 +1,315 @@
+{
+  "output": "/Users/daniilvazdaev/Desktop/уник/Бизнес-планирование/AgroVector/presentations/AGROVECTOR_22_SLIDES_MOTION.pptx",
+  "sha256": "f127420ea99c961e2ee9c48022ab8b7e254f0c1c856e3fbe07a6ee7c2af97b5b",
+  "slides": 22,
+  "morph_transitions": 13,
+  "animated_slides": 13,
+  "plan": [
+    {
+      "slide": 1,
+      "transition": "fade",
+      "click_groups": [
+        [
+          7,
+          8,
+          9
+        ],
+        [
+          12,
+          13,
+          14
+        ],
+        [
+          17,
+          18,
+          19
+        ]
+      ]
+    },
+    {
+      "slide": 2,
+      "transition": "fade",
+      "click_groups": []
+    },
+    {
+      "slide": 3,
+      "transition": "morph",
+      "click_groups": [
+        [
+          9,
+          10
+        ],
+        [
+          13,
+          14
+        ],
+        [
+          17,
+          18
+        ]
+      ]
+    },
+    {
+      "slide": 4,
+      "transition": "morph",
+      "click_groups": [
+        [
+          8,
+          9,
+          17,
+          18,
+          26,
+          27
+        ],
+        [
+          11,
+          12,
+          20,
+          21,
+          29,
+          30
+        ],
+        [
+          14,
+          15,
+          23,
+          24,
+          32,
+          33
+        ]
+      ]
+    },
+    {
+      "slide": 5,
+      "transition": "morph",
+      "click_groups": [
+        [
+          10,
+          11,
+          12,
+          23,
+          24
+        ],
+        [
+          15,
+          16,
+          17
+        ],
+        [
+          20,
+          21,
+          22
+        ]
+      ]
+    },
+    {
+      "slide": 6,
+      "transition": "fade",
+      "click_groups": []
+    },
+    {
+      "slide": 7,
+      "transition": "fade",
+      "click_groups": [
+        [
+          9,
+          10,
+          17,
+          18
+        ],
+        [
+          13,
+          14,
+          21,
+          22
+        ]
+      ]
+    },
+    {
+      "slide": 8,
+      "transition": "fade",
+      "click_groups": []
+    },
+    {
+      "slide": 9,
+      "transition": "fade",
+      "click_groups": []
+    },
+    {
+      "slide": 10,
+      "transition": "fade",
+      "click_groups": [
+        [
+          9,
+          10,
+          17,
+          18
+        ],
+        [
+          13,
+          14,
+          21,
+          22
+        ]
+      ]
+    },
+    {
+      "slide": 11,
+      "transition": "morph",
+      "click_groups": [
+        [
+          9,
+          10,
+          11,
+          22
+        ],
+        [
+          14,
+          15,
+          16
+        ],
+        [
+          19,
+          20,
+          21
+        ]
+      ]
+    },
+    {
+      "slide": 12,
+      "transition": "fade",
+      "click_groups": []
+    },
+    {
+      "slide": 13,
+      "transition": "morph",
+      "click_groups": [
+        [
+          9,
+          10,
+          17,
+          18
+        ],
+        [
+          13,
+          14,
+          21,
+          22
+        ]
+      ]
+    },
+    {
+      "slide": 14,
+      "transition": "morph",
+      "click_groups": []
+    },
+    {
+      "slide": 15,
+      "transition": "morph",
+      "click_groups": []
+    },
+    {
+      "slide": 16,
+      "transition": "fade",
+      "click_groups": []
+    },
+    {
+      "slide": 17,
+      "transition": "morph",
+      "click_groups": [
+        [
+          8,
+          9,
+          10
+        ]
+      ]
+    },
+    {
+      "slide": 18,
+      "transition": "morph",
+      "click_groups": [
+        [
+          8,
+          9,
+          10
+        ]
+      ]
+    },
+    {
+      "slide": 19,
+      "transition": "morph",
+      "click_groups": [
+        [
+          7,
+          19
+        ],
+        [
+          9,
+          12,
+          15
+        ],
+        [
+          10,
+          13,
+          16
+        ]
+      ]
+    },
+    {
+      "slide": 20,
+      "transition": "morph",
+      "click_groups": [
+        [
+          9,
+          10,
+          11,
+          17
+        ],
+        [
+          14,
+          15,
+          16
+        ]
+      ]
+    },
+    {
+      "slide": 21,
+      "transition": "morph",
+      "click_groups": [
+        [
+          8,
+          9,
+          10,
+          20,
+          21,
+          22
+        ],
+        [
+          12,
+          13,
+          14,
+          24,
+          25,
+          26
+        ],
+        [
+          16,
+          17,
+          18,
+          28,
+          29,
+          30
+        ]
+      ]
+    },
+    {
+      "slide": 22,
+      "transition": "morph",
+      "click_groups": []
+    }
+  ],
+  "verified": "Text, notes, table cells, chart values unchanged; ZIP/targets valid; native open/save verified.",
+  "compatibility": "Morph requires recent Microsoft PowerPoint; fade fallback. No automatic slide advance; next click reveals a group.",
+  "native_powerpoint": "Opened and saved independent copy via AppleScript: 22 slides; 13 Morph and 13 timing trees survive native save. Live playback not visually verified: desktop capture exposes no windows.",
+  "static_render": "LibreOffice PDF:22pages; all contact sheets reviewed; no visible clipping. Dense evidence tables remain."
+}

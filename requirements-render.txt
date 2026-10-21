@@ -1,0 +1,2 @@
+# Optional actual PDF rasterization; LibreOffice is installed separately.
+pymupdf==2.0

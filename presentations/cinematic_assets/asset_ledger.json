@@ -1,0 +1,28 @@
+{
+  "license": "https://www.pexels.com/license/",
+  "classification": "Third-party illustrative stock plus original synthetic drone; not AgroVector operations",
+  "sources": [
+    {
+      "role": "golden field horizon",
+      "url": "https://www.pexels.com/video/aerial-footage-of-wheat-field-9130276/"
+    },
+    {
+      "role": "spraying drone",
+      "url": "https://www.pexels.com/video/aerial-drone-spraying-pesticides-in-farmland-37280502/"
+    },
+    {
+      "role": "survey texture",
+      "url": "https://www.pexels.com/video/aerial-footage-of-a-wheat-field-9289796/"
+    },
+    {
+      "role": "close-up grain",
+      "url": "https://www.pexels.com/video/close-up-view-of-a-wheat-5308472/"
+    }
+  ],
+  "limitations": [
+    "Stock shots are different locations, not one documented field",
+    "Composite flight and spray are concept visualization, not physical/agronomic simulation",
+    "Playback loop can visibly restart the stock clip; continuous single-camera take is not asserted"
+  ],
+  "codec": "H.264 yuv420p 1280x720 25fps, no audio"
+}

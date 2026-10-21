@@ -1,0 +1,166 @@
+[
+  {
+    "slide": 1,
+    "background_id": 13,
+    "drone_id": 14,
+    "spray_id": null,
+    "chart_ids": []
+  },
+  {
+    "slide": 2,
+    "background_id": 16,
+    "drone_id": 17,
+    "spray_id": 18,
+    "chart_ids": []
+  },
+  {
+    "slide": 3,
+    "background_id": 16,
+    "drone_id": 17,
+    "spray_id": null,
+    "chart_ids": []
+  },
+  {
+    "slide": 4,
+    "background_id": 37,
+    "drone_id": 38,
+    "spray_id": null,
+    "chart_ids": []
+  },
+  {
+    "slide": 5,
+    "background_id": 16,
+    "drone_id": 17,
+    "spray_id": null,
+    "chart_ids": []
+  },
+  {
+    "slide": 6,
+    "background_id": 13,
+    "drone_id": 14,
+    "spray_id": null,
+    "chart_ids": []
+  },
+  {
+    "slide": 7,
+    "background_id": 16,
+    "drone_id": 17,
+    "spray_id": null,
+    "chart_ids": []
+  },
+  {
+    "slide": 8,
+    "background_id": 13,
+    "drone_id": 14,
+    "spray_id": null,
+    "chart_ids": []
+  },
+  {
+    "slide": 9,
+    "background_id": 16,
+    "drone_id": 17,
+    "spray_id": null,
+    "chart_ids": []
+  },
+  {
+    "slide": 10,
+    "background_id": 16,
+    "drone_id": 17,
+    "spray_id": null,
+    "chart_ids": []
+  },
+  {
+    "slide": 11,
+    "background_id": 16,
+    "drone_id": 17,
+    "spray_id": null,
+    "chart_ids": [
+      20
+    ]
+  },
+  {
+    "slide": 12,
+    "background_id": 16,
+    "drone_id": 17,
+    "spray_id": null,
+    "chart_ids": []
+  },
+  {
+    "slide": 13,
+    "background_id": 16,
+    "drone_id": 17,
+    "spray_id": null,
+    "chart_ids": []
+  },
+  {
+    "slide": 14,
+    "background_id": 59,
+    "drone_id": 60,
+    "spray_id": null,
+    "chart_ids": []
+  },
+  {
+    "slide": 15,
+    "background_id": 66,
+    "drone_id": 67,
+    "spray_id": null,
+    "chart_ids": []
+  },
+  {
+    "slide": 16,
+    "background_id": 13,
+    "drone_id": 14,
+    "spray_id": null,
+    "chart_ids": []
+  },
+  {
+    "slide": 17,
+    "background_id": 20,
+    "drone_id": 21,
+    "spray_id": null,
+    "chart_ids": [
+      9
+    ]
+  },
+  {
+    "slide": 18,
+    "background_id": 15,
+    "drone_id": 16,
+    "spray_id": null,
+    "chart_ids": [
+      9
+    ]
+  },
+  {
+    "slide": 19,
+    "background_id": 16,
+    "drone_id": 17,
+    "spray_id": null,
+    "chart_ids": [
+      20
+    ]
+  },
+  {
+    "slide": 20,
+    "background_id": 16,
+    "drone_id": 17,
+    "spray_id": null,
+    "chart_ids": [
+      20
+    ]
+  },
+  {
+    "slide": 21,
+    "background_id": 16,
+    "drone_id": 17,
+    "spray_id": null,
+    "chart_ids": []
+  },
+  {
+    "slide": 22,
+    "background_id": 16,
+    "drone_id": 17,
+    "spray_id": null,
+    "chart_ids": []
+  }
+]

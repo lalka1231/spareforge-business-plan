@@ -1,0 +1,171 @@
+[
+  {
+    "slide": 1,
+    "morph": true,
+    "animations": [
+      "photo subtle drift",
+      "separate drone hover"
+    ],
+    "animated_chart_points": 0,
+    "background_motion": true
+  },
+  {
+    "slide": 2,
+    "morph": true,
+    "animations": [
+      "drone flight + synchronized spray; photo static"
+    ],
+    "animated_chart_points": 0,
+    "background_motion": false
+  },
+  {
+    "slide": 3,
+    "morph": true,
+    "animations": [],
+    "animated_chart_points": 0,
+    "background_motion": false
+  },
+  {
+    "slide": 4,
+    "morph": true,
+    "animations": [],
+    "animated_chart_points": 0,
+    "background_motion": false
+  },
+  {
+    "slide": 5,
+    "morph": true,
+    "animations": [],
+    "animated_chart_points": 0,
+    "background_motion": false
+  },
+  {
+    "slide": 6,
+    "morph": true,
+    "animations": [],
+    "animated_chart_points": 0,
+    "background_motion": false
+  },
+  {
+    "slide": 7,
+    "morph": true,
+    "animations": [],
+    "animated_chart_points": 0,
+    "background_motion": false
+  },
+  {
+    "slide": 8,
+    "morph": true,
+    "animations": [],
+    "animated_chart_points": 0,
+    "background_motion": false
+  },
+  {
+    "slide": 9,
+    "morph": true,
+    "animations": [],
+    "animated_chart_points": 0,
+    "background_motion": false
+  },
+  {
+    "slide": 10,
+    "morph": true,
+    "animations": [],
+    "animated_chart_points": 0,
+    "background_motion": false
+  },
+  {
+    "slide": 11,
+    "morph": true,
+    "animations": [
+      "individual point Wipe entrances"
+    ],
+    "animated_chart_points": 5,
+    "background_motion": false
+  },
+  {
+    "slide": 12,
+    "morph": true,
+    "animations": [],
+    "animated_chart_points": 0,
+    "background_motion": false
+  },
+  {
+    "slide": 13,
+    "morph": true,
+    "animations": [],
+    "animated_chart_points": 0,
+    "background_motion": false
+  },
+  {
+    "slide": 14,
+    "morph": true,
+    "animations": [],
+    "animated_chart_points": 0,
+    "background_motion": false
+  },
+  {
+    "slide": 15,
+    "morph": true,
+    "animations": [],
+    "animated_chart_points": 0,
+    "background_motion": false
+  },
+  {
+    "slide": 16,
+    "morph": true,
+    "animations": [],
+    "animated_chart_points": 0,
+    "background_motion": false
+  },
+  {
+    "slide": 17,
+    "morph": true,
+    "animations": [
+      "individual point Wipe entrances"
+    ],
+    "animated_chart_points": 15,
+    "background_motion": false
+  },
+  {
+    "slide": 18,
+    "morph": true,
+    "animations": [
+      "individual point Wipe entrances"
+    ],
+    "animated_chart_points": 6,
+    "background_motion": false
+  },
+  {
+    "slide": 19,
+    "morph": true,
+    "animations": [
+      "sector Wheel entrances"
+    ],
+    "animated_chart_points": 3,
+    "background_motion": false
+  },
+  {
+    "slide": 20,
+    "morph": true,
+    "animations": [
+      "sector Wheel entrances"
+    ],
+    "animated_chart_points": 2,
+    "background_motion": false
+  },
+  {
+    "slide": 21,
+    "morph": true,
+    "animations": [],
+    "animated_chart_points": 0,
+    "background_motion": false
+  },
+  {
+    "slide": 22,
+    "morph": true,
+    "animations": [],
+    "animated_chart_points": 0,
+    "background_motion": false
+  }
+]

@@ -1,0 +1,2 @@
+# Existing Office/render dependencies are installed from project requirements.
+imageio-ffmpeg==0.6.0

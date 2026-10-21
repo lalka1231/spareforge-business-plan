@@ -14,6 +14,7 @@ def build():
     for r in rows:
         sections['14']+=f"    {r['id']} {r['task']} :{'crit, ' if r['critical'] else ''}{r['id']}, {r['start_date']}, {r['duration_weeks']*7}d\n"
     sections['14']+='```\n'
+    sections['14']+='\n[ДОПУЩЕНИЕ] Контрольные точки внутри сезона, без добавления объема или параллельной бригады:\n\n'+table(['ID','Дата','Работа','Результат','Ответственный'],[[m['id'],m['date'],m['task'],m['deliverable'],m['owner']] for m in tasks['milestones']])
     sections['15']+='\n\n[РАСЧЕТ] Критический путь: **'+' → '.join(tasks['critical_tasks'])+f"**. Продолжительность {tasks['duration_weeks']} недель, включая погодный буфер M и первый сезон K. Это плановый CPM, не прогноз срока выдачи документов.\n\n"
     sections['15']+=table(['ID','Предшественники','ES','EF','LS','LF','Резерв'],[[r['id'],r['predecessors'] or '—',r['es'],r['ef'],r['ls'],r['lf'],r['slack_weeks']] for r in rows])
     sections['15']+='\n```mermaid\nflowchart LR\n'
@@ -26,11 +27,16 @@ def build():
     header='# АгроВектор\n\n## Инвестиционный бизнес-план ранней стадии\n\nСервис применения сельскохозяйственных дронов для мониторинга посевов и точечного внесения удобрений, средств защиты растений и биопрепаратов.\n\nВерсия 05.09.2026 · Плановый горизонт 2027–2031 · Валюта: рубли РФ.\n\n**Статус:** инвестиционная гипотеза до пилота; продажи, разрешения и финансирование не подтверждены. **Рекомендация:** условное поэтапное финансирование, а не безусловная закупка флота.\n\n**Маркировка:** [ФАКТ] — проверенный внешний источник; [РАСЧЕТ] — результат модели; [ДОПУЩЕНИЕ] — проектное решение или еще не подтвержденная гипотеза. Маркер в начале абзаца или перед таблицей распространяется на весь абзац/таблицу, если строка не помечена иначе.\n\n'
     body=header+'\n\n'.join(f'## {i}. {title}\n\n{sections[str(i)]}' for i,title in enumerate(TITLES,1))
     import re
-    body=body.replace('Версия 05.09.2026','Редакция 14.10.2026; исходные допущения 05.09.2026')
-    body=re.sub(r'(?<=[а-яА-ЯёЁA-Za-z])(?=\d)|(?<=\d)(?=[а-яА-ЯёЁA-Za-z])',' ',body)
+    body=body.replace('Версия 05.09.2026','Редакция 20.10.2026; исходные допущения 05.09.2026')
+    # Format Russian prose only; do not corrupt XAG P100 Pro, t0, Y5, IDs or URLs.
+    parts=re.split(r'(https?://\S+|`[^`]+`)',body)
+    for i in range(0,len(parts),2):
+        parts[i]=re.sub(r'(?<=[а-яА-ЯёЁ])(?=\d)|(?<=\d)(?=[а-яА-ЯёЁ])',' ',parts[i])
+        for a,b in [('млнруб','млн руб'),('тыс.руб','тыс. руб'),('наFTE','на FTE'),('за5лет','за 5 лет'),('концеY5','конце Y5')]:parts[i]=parts[i].replace(a,b)
+    body=''.join(parts)
     if (ROOT/'data/references_block.md').exists():
         body+='\n\n'+(ROOT/'data/references_block.md').read_text(encoding='utf-8')
-    (ROOT/'docs/FINAL_BUSINESS_PLAN.md').write_text(body+'\n',encoding='utf-8')
+    (ROOT/'docs/FINAL_BUSINESS_PLAN.md').write_text(body.rstrip()+'\n',encoding='utf-8')
     (ROOT/'data/section_titles.json').write_text(json.dumps(TITLES,ensure_ascii=False,indent=2),encoding='utf-8')
     print(f'Assembled {len(TITLES)} sections; {len(body)} characters')
 if __name__=='__main__':build()

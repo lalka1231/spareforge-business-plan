@@ -1,0 +1,322 @@
+[
+  {
+    "slide": 1,
+    "background": "presentations/static_morph_assets/background_01.jpg",
+    "source": {
+      "source_url": "https://www.pexels.com/video/aerial-footage-of-wheat-field-9130276/",
+      "license_url": "https://www.pexels.com/license/",
+      "type": "Selected STILL frame, no video embedded"
+    },
+    "motion": "subtle native photo drift"
+  },
+  {
+    "slide": 2,
+    "background": "presentations/static_morph_assets/background_02.jpg",
+    "source": {
+      "author": "Barney Goodman",
+      "source_url": "https://unsplash.com/photos/detailed-golden-wheat-ears-under-a-bright-blue-sky-sMndTj2ZfsQ",
+      "license_url": "https://unsplash.com/license"
+    },
+    "motion": "NONE: static photo"
+  },
+  {
+    "slide": 3,
+    "background": "presentations/static_morph_assets/background_03.jpg",
+    "source": {
+      "filename": "01-aerial-harvesting.jpg",
+      "title": "Aerial harvesting machinery",
+      "source_url": "https://unsplash.com/photos/an-aerial-view-of-a-tractor-in-a-field-j3g2OfcoMk8",
+      "author": "Bernd Dittrich",
+      "license_url": "https://unsplash.com/license",
+      "download_url": "https://images.unsplash.com/photo-1643456457241-745a30930c17?fm=jpg&w=2600&q=85",
+      "bytes": 2474115,
+      "sha256": "24c269ab654a43ae794e444c0b9e4cc2a3e2acb10f54aa43ac571c181237bac2"
+    },
+    "motion": "NONE: static photo"
+  },
+  {
+    "slide": 4,
+    "background": "presentations/static_morph_assets/background_04.jpg",
+    "source": {
+      "filename": "02-fields-blue-sky.jpg",
+      "title": "Agricultural fields under blue sky",
+      "source_url": "https://unsplash.com/photos/vast-agricultural-fields-under-a-bright-blue-sky-XLNkcgajg9Q",
+      "author": "Sergej Warkentin",
+      "license_url": "https://unsplash.com/license",
+      "download_url": "https://images.unsplash.com/photo-1757663167926-4607ac5ef6c1?fm=jpg&w=2600&q=85",
+      "bytes": 1274470,
+      "sha256": "ba381ac7c8358ae325c8197c728a44818f123acca6d113a69f965f03dd926035"
+    },
+    "motion": "NONE: static photo"
+  },
+  {
+    "slide": 5,
+    "background": "presentations/static_morph_assets/background_05.jpg",
+    "source": {
+      "filename": "03-aerial-wheat-road.jpg",
+      "title": "Aerial wheat field and road",
+      "source_url": "https://unsplash.com/photos/a-large-field-of-wheat-next-to-a-road-krhoxDCJIPI",
+      "author": "Bernd Dittrich",
+      "license_url": "https://unsplash.com/license",
+      "download_url": "https://images.unsplash.com/photo-1647491650295-7faea941af6a?fm=jpg&w=2600&q=85",
+      "bytes": 1463803,
+      "sha256": "23cb4391d01230d61fe4a6de51e4b299932bad8640589c55a4e004731ae8e2d9"
+    },
+    "motion": "NONE: static photo"
+  },
+  {
+    "slide": 6,
+    "background": "presentations/static_morph_assets/background_06.jpg",
+    "source": {
+      "filename": "04-ripe-wheat.jpg",
+      "title": "Ripe wheat detail",
+      "source_url": "https://unsplash.com/photos/a-field-of-ripe-wheat-ready-to-be-harvested-wZRS4blIaPE",
+      "author": "GOETZ Jean-Pierre",
+      "license_url": "https://unsplash.com/license",
+      "download_url": "https://images.unsplash.com/photo-1708789313887-61c43597eeef?fm=jpg&w=2600&q=85",
+      "bytes": 1732774,
+      "sha256": "e4a8ed23f40948409c6b6fda80214a861326df6a6d7b5357e2372892d476a5b0"
+    },
+    "motion": "NONE: static photo"
+  },
+  {
+    "slide": 7,
+    "background": "presentations/static_morph_assets/background_07.jpg",
+    "source": {
+      "filename": "05-drone-controller.jpg",
+      "title": "Drone controller close-up",
+      "source_url": "https://unsplash.com/photos/gray-drone-controller-25K_by8ro5U",
+      "author": "Jamie Street",
+      "license_url": "https://unsplash.com/license",
+      "download_url": "https://images.unsplash.com/photo-1557881718-bb4e865a7f37?fm=jpg&w=2600&q=85",
+      "bytes": 615405,
+      "sha256": "ce7ee6ff8683c9260bb81e843c2bd5a4877797ef7f005bfbb5d64bfed402e729"
+    },
+    "motion": "NONE: static photo"
+  },
+  {
+    "slide": 8,
+    "background": "presentations/static_morph_assets/background_08.jpg",
+    "source": {
+      "filename": "06-grain-silos.jpg",
+      "title": "Large metal silos",
+      "source_url": "https://unsplash.com/photos/a-group-of-large-metal-tanks-sitting-next-to-each-other-ZaVUNY5rHmY",
+      "author": "Jim Witkowski",
+      "license_url": "https://unsplash.com/license",
+      "download_url": "https://images.unsplash.com/photo-1556114846-f753bec8a9f5?fm=jpg&w=2600&q=85",
+      "bytes": 686338,
+      "sha256": "a9de2850ff68cb2ccec572f36cc92893d28cc8e762964628e27b0c378ca790f7"
+    },
+    "motion": "NONE: static photo"
+  },
+  {
+    "slide": 9,
+    "background": "presentations/static_morph_assets/background_09.jpg",
+    "source": {
+      "filename": "07-aerial-farm-road.jpg",
+      "title": "Aerial farm and road",
+      "source_url": "https://unsplash.com/photos/an-aerial-view-of-a-farm-and-a-road-dbOla5RRyDA",
+      "author": null,
+      "license_url": "https://unsplash.com/license",
+      "download_url": "https://images.unsplash.com/photo-1715026323270-564a788bbadc?fm=jpg&w=2600&q=85",
+      "bytes": 1230316,
+      "sha256": "bc173e6793f493c62e4a5b9950ebfbff0e44e9596ad1355cc2c3eacdf8223871"
+    },
+    "motion": "NONE: static photo"
+  },
+  {
+    "slide": 10,
+    "background": "presentations/static_morph_assets/background_10.jpg",
+    "source": {
+      "filename": "08-controller-device.jpg",
+      "title": "Controller device on table",
+      "source_url": "https://unsplash.com/photos/a-cell-phone-sitting-on-top-of-a-table-LcHxpM9rumQ",
+      "author": "Sadiq Ahmad",
+      "license_url": "https://unsplash.com/license",
+      "download_url": "https://images.unsplash.com/photo-1687510014707-580a7c55b728?fm=jpg&w=2600&q=85",
+      "bytes": 217594,
+      "sha256": "237d835116e5527f76603c041bbbd8518a7c2c2bed1e80985e09da47a7e36f25"
+    },
+    "motion": "NONE: static photo"
+  },
+  {
+    "slide": 11,
+    "background": "presentations/static_morph_assets/background_11.jpg",
+    "source": {
+      "filename": "01-aerial-harvesting.jpg",
+      "title": "Aerial harvesting machinery",
+      "source_url": "https://unsplash.com/photos/an-aerial-view-of-a-tractor-in-a-field-j3g2OfcoMk8",
+      "author": "Bernd Dittrich",
+      "license_url": "https://unsplash.com/license",
+      "download_url": "https://images.unsplash.com/photo-1643456457241-745a30930c17?fm=jpg&w=2600&q=85",
+      "bytes": 2474115,
+      "sha256": "24c269ab654a43ae794e444c0b9e4cc2a3e2acb10f54aa43ac571c181237bac2"
+    },
+    "motion": "NONE: static photo"
+  },
+  {
+    "slide": 12,
+    "background": "presentations/static_morph_assets/background_12.jpg",
+    "source": {
+      "filename": "02-fields-blue-sky.jpg",
+      "title": "Agricultural fields under blue sky",
+      "source_url": "https://unsplash.com/photos/vast-agricultural-fields-under-a-bright-blue-sky-XLNkcgajg9Q",
+      "author": "Sergej Warkentin",
+      "license_url": "https://unsplash.com/license",
+      "download_url": "https://images.unsplash.com/photo-1757663167926-4607ac5ef6c1?fm=jpg&w=2600&q=85",
+      "bytes": 1274470,
+      "sha256": "ba381ac7c8358ae325c8197c728a44818f123acca6d113a69f965f03dd926035"
+    },
+    "motion": "NONE: static photo"
+  },
+  {
+    "slide": 13,
+    "background": "presentations/static_morph_assets/background_13.jpg",
+    "source": {
+      "filename": "03-aerial-wheat-road.jpg",
+      "title": "Aerial wheat field and road",
+      "source_url": "https://unsplash.com/photos/a-large-field-of-wheat-next-to-a-road-krhoxDCJIPI",
+      "author": "Bernd Dittrich",
+      "license_url": "https://unsplash.com/license",
+      "download_url": "https://images.unsplash.com/photo-1647491650295-7faea941af6a?fm=jpg&w=2600&q=85",
+      "bytes": 1463803,
+      "sha256": "23cb4391d01230d61fe4a6de51e4b299932bad8640589c55a4e004731ae8e2d9"
+    },
+    "motion": "NONE: static photo"
+  },
+  {
+    "slide": 14,
+    "background": "presentations/static_morph_assets/background_14.jpg",
+    "source": {
+      "filename": "04-ripe-wheat.jpg",
+      "title": "Ripe wheat detail",
+      "source_url": "https://unsplash.com/photos/a-field-of-ripe-wheat-ready-to-be-harvested-wZRS4blIaPE",
+      "author": "GOETZ Jean-Pierre",
+      "license_url": "https://unsplash.com/license",
+      "download_url": "https://images.unsplash.com/photo-1708789313887-61c43597eeef?fm=jpg&w=2600&q=85",
+      "bytes": 1732774,
+      "sha256": "e4a8ed23f40948409c6b6fda80214a861326df6a6d7b5357e2372892d476a5b0"
+    },
+    "motion": "NONE: static photo"
+  },
+  {
+    "slide": 15,
+    "background": "presentations/static_morph_assets/background_15.jpg",
+    "source": {
+      "filename": "05-drone-controller.jpg",
+      "title": "Drone controller close-up",
+      "source_url": "https://unsplash.com/photos/gray-drone-controller-25K_by8ro5U",
+      "author": "Jamie Street",
+      "license_url": "https://unsplash.com/license",
+      "download_url": "https://images.unsplash.com/photo-1557881718-bb4e865a7f37?fm=jpg&w=2600&q=85",
+      "bytes": 615405,
+      "sha256": "ce7ee6ff8683c9260bb81e843c2bd5a4877797ef7f005bfbb5d64bfed402e729"
+    },
+    "motion": "NONE: static photo"
+  },
+  {
+    "slide": 16,
+    "background": "presentations/static_morph_assets/background_16.jpg",
+    "source": {
+      "filename": "06-grain-silos.jpg",
+      "title": "Large metal silos",
+      "source_url": "https://unsplash.com/photos/a-group-of-large-metal-tanks-sitting-next-to-each-other-ZaVUNY5rHmY",
+      "author": "Jim Witkowski",
+      "license_url": "https://unsplash.com/license",
+      "download_url": "https://images.unsplash.com/photo-1556114846-f753bec8a9f5?fm=jpg&w=2600&q=85",
+      "bytes": 686338,
+      "sha256": "a9de2850ff68cb2ccec572f36cc92893d28cc8e762964628e27b0c378ca790f7"
+    },
+    "motion": "NONE: static photo"
+  },
+  {
+    "slide": 17,
+    "background": "presentations/static_morph_assets/background_17.jpg",
+    "source": {
+      "filename": "07-aerial-farm-road.jpg",
+      "title": "Aerial farm and road",
+      "source_url": "https://unsplash.com/photos/an-aerial-view-of-a-farm-and-a-road-dbOla5RRyDA",
+      "author": null,
+      "license_url": "https://unsplash.com/license",
+      "download_url": "https://images.unsplash.com/photo-1715026323270-564a788bbadc?fm=jpg&w=2600&q=85",
+      "bytes": 1230316,
+      "sha256": "bc173e6793f493c62e4a5b9950ebfbff0e44e9596ad1355cc2c3eacdf8223871"
+    },
+    "motion": "NONE: static photo"
+  },
+  {
+    "slide": 18,
+    "background": "presentations/static_morph_assets/background_18.jpg",
+    "source": {
+      "filename": "08-controller-device.jpg",
+      "title": "Controller device on table",
+      "source_url": "https://unsplash.com/photos/a-cell-phone-sitting-on-top-of-a-table-LcHxpM9rumQ",
+      "author": "Sadiq Ahmad",
+      "license_url": "https://unsplash.com/license",
+      "download_url": "https://images.unsplash.com/photo-1687510014707-580a7c55b728?fm=jpg&w=2600&q=85",
+      "bytes": 217594,
+      "sha256": "237d835116e5527f76603c041bbbd8518a7c2c2bed1e80985e09da47a7e36f25"
+    },
+    "motion": "NONE: static photo"
+  },
+  {
+    "slide": 19,
+    "background": "presentations/static_morph_assets/background_19.jpg",
+    "source": {
+      "filename": "01-aerial-harvesting.jpg",
+      "title": "Aerial harvesting machinery",
+      "source_url": "https://unsplash.com/photos/an-aerial-view-of-a-tractor-in-a-field-j3g2OfcoMk8",
+      "author": "Bernd Dittrich",
+      "license_url": "https://unsplash.com/license",
+      "download_url": "https://images.unsplash.com/photo-1643456457241-745a30930c17?fm=jpg&w=2600&q=85",
+      "bytes": 2474115,
+      "sha256": "24c269ab654a43ae794e444c0b9e4cc2a3e2acb10f54aa43ac571c181237bac2"
+    },
+    "motion": "NONE: static photo"
+  },
+  {
+    "slide": 20,
+    "background": "presentations/static_morph_assets/background_20.jpg",
+    "source": {
+      "filename": "02-fields-blue-sky.jpg",
+      "title": "Agricultural fields under blue sky",
+      "source_url": "https://unsplash.com/photos/vast-agricultural-fields-under-a-bright-blue-sky-XLNkcgajg9Q",
+      "author": "Sergej Warkentin",
+      "license_url": "https://unsplash.com/license",
+      "download_url": "https://images.unsplash.com/photo-1757663167926-4607ac5ef6c1?fm=jpg&w=2600&q=85",
+      "bytes": 1274470,
+      "sha256": "ba381ac7c8358ae325c8197c728a44818f123acca6d113a69f965f03dd926035"
+    },
+    "motion": "NONE: static photo"
+  },
+  {
+    "slide": 21,
+    "background": "presentations/static_morph_assets/background_21.jpg",
+    "source": {
+      "filename": "03-aerial-wheat-road.jpg",
+      "title": "Aerial wheat field and road",
+      "source_url": "https://unsplash.com/photos/a-large-field-of-wheat-next-to-a-road-krhoxDCJIPI",
+      "author": "Bernd Dittrich",
+      "license_url": "https://unsplash.com/license",
+      "download_url": "https://images.unsplash.com/photo-1647491650295-7faea941af6a?fm=jpg&w=2600&q=85",
+      "bytes": 1463803,
+      "sha256": "23cb4391d01230d61fe4a6de51e4b299932bad8640589c55a4e004731ae8e2d9"
+    },
+    "motion": "NONE: static photo"
+  },
+  {
+    "slide": 22,
+    "background": "presentations/static_morph_assets/background_22.jpg",
+    "source": {
+      "filename": "04-ripe-wheat.jpg",
+      "title": "Ripe wheat detail",
+      "source_url": "https://unsplash.com/photos/a-field-of-ripe-wheat-ready-to-be-harvested-wZRS4blIaPE",
+      "author": "GOETZ Jean-Pierre",
+      "license_url": "https://unsplash.com/license",
+      "download_url": "https://images.unsplash.com/photo-1708789313887-61c43597eeef?fm=jpg&w=2600&q=85",
+      "bytes": 1732774,
+      "sha256": "e4a8ed23f40948409c6b6fda80214a861326df6a6d7b5357e2372892d476a5b0"
+    },
+    "motion": "NONE: static photo"
+  }
+]

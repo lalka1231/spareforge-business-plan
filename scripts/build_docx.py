@@ -103,11 +103,12 @@ class Builder:
     idx=[0]+list(range(k,min(k+3,len(headers))))
     self.table([headers[x] for x in idx],[[r[x] for x in idx] for r in data],(label or 'Расчетные показатели')+f' — блок {(k-1)//3+1}')
    return
-  land=False;self.orient(land)
+  land=self.section_no==6;self.orient(land)
   self.caption+=1;p=self.para(f'Таблица {self.caption}. '+(label or ' / '.join(headers[:2])),'Caption');p.paragraph_format.keep_with_next=True
   t=self.doc.add_table(rows=1,cols=len(headers));t.style='Table Grid';t.autofit=False
   width=(25.7 if land else 17)/len(headers)
-  for c in t.columns:c.width=Cm(width)
+  widths=[3.0,7.3,7.2,8.2] if land and len(headers)==4 else [width]*len(headers)
+  for c,w in zip(t.columns,widths):c.width=Cm(w)
   for i,x in enumerate(headers):t.rows[0].cells[i].text=x
   prop=t.rows[0]._tr.get_or_add_trPr();repeat=OxmlElement('w:tblHeader');prop.append(repeat)
   for row in data:
@@ -115,20 +116,21 @@ class Builder:
    for i,text in enumerate(row):cells[i].text=text
   for ri,row in enumerate(t.rows):
    trPr=row._tr.get_or_add_trPr();cant=OxmlElement('w:cantSplit');trPr.append(cant)
-   for c in row.cells:
+   for ci,c in enumerate(row.cells):
+    c.width=Cm(widths[ci])
     if ri==0:
      sh=OxmlElement('w:shd');sh.set(qn('w:fill'),LIGHT);c._tc.get_or_add_tcPr().append(sh)
     for p in c.paragraphs:
      p.paragraph_format.line_spacing=1.0;p.paragraph_format.space_after=Pt(3)
-     for r in p.runs:r.font.name='Times New Roman';r.font.size=Pt(10 if len(headers)>3 else 11);r.bold=(ri==0)
-  self.doc.add_paragraph();self.orient(False)
+     for r in p.runs:r.font.name='Times New Roman';r.font.size=Pt(11 if land else 10 if len(headers)>3 else 11);r.bold=(ri==0)
+  if self.section_no!=6:self.orient(False)
  def image(self,name,caption):
   self.orient(True);self.doc.add_picture(str(ASSETS/name),width=Cm(25));self.para(caption,'Caption');self.orient(False)
  def cover(self,titles):
   self.para('АГРОВЕКТОР','Title');self.para('БИЗНЕС-ПЛАН','Subtitle')
   self.para('Сервис применения сельскохозяйственных дронов для мониторинга посевов и точечного внесения удобрений, средств защиты растений и биопрепаратов','Subtitle')
   self.para('Полная версия с финансовой моделью, организационным планом и расчетными приложениями')
-  self.para('Горизонт планирования: 2027–2031\nРедакция: 14.10.2026; исходные допущения: 05.09.2026\nАвтор: Даниил Ваздаев')
+  self.para('Горизонт планирования: 2027–2031\nРедакция: 20.10.2026; исходные допущения: 05.09.2026\nАвтор: Даниил Ваздаев')
   self.para('Для рассмотрения агропартнером или инвестором. Проект ранней стадии; финансирование, контракты и разрешения не объявляются полученными.')
   self.doc.add_page_break();self.doc.add_heading('Содержание',level=1)
   for i,t in enumerate(titles,1):self.para(f'{i}. {t}')
@@ -142,7 +144,8 @@ class Builder:
    t=tokens[i]
    if t.type=='heading_open':
     text=tokens[i+1].content;level=int(t.tag[1]);match=re.match(r'(\d+)\.',text)
-    if match:self.section_no=int(match[1])
+    if match:
+     self.section_no=int(match[1]);self.orient(self.section_no==6)
     p=self.doc.add_heading(text,level=max(1,level-1));i+=3;continue
    if t.type=='table_open':
     j=i+1;rr=[];row=[]
@@ -168,12 +171,13 @@ def main():
  OUT.mkdir(exist_ok=True);graph_assets();b=Builder();titles=json.loads((ROOT/'data/section_titles.json').read_text());b.cover(titles)
  text=(ROOT/'docs/FINAL_BUSINESS_PLAN.md').read_text();body=text[text.index('## 1.'):].split('## Sources')[0];b.markdown(body)
  b.doc.add_heading('Источники',level=1)
+ ledger={str(s['id']):s for s in json.loads((ROOT/'data/source_ledger.json').read_text())['sources']}
  for line in (ROOT/'data/references_block.md').read_text().splitlines():
   match=re.match(r'\[(\d+)\] (https?://\S+) — (.*)',line)
   if match:
-   sid,url,title=match.groups();p=b.para(f'[{sid}] {title}. Дата обращения: 05.09.2026. ');hyperlink(p,'Открыть источник',url)
+   sid,url,title=match.groups();src=ledger[sid];p=b.para(f"[{sid}] {title}. Последнее содержательное чтение: {src['accessed']}. {src.get('verification_status','Архивная запись.')} ");p.paragraph_format.keep_with_next=True;hyperlink(p,'Открыть источник',url)
    # Retain printable URLs with permitted line breaks after path delimiters.
-   p=b.para(url.replace('/','/\u200b').replace('%','\u200b%'))
+   p=b.para(url.replace('/','/\u200b').replace('%','\u200b%'));p.paragraph_format.keep_together=True
    for r in p.runs:r.font.size=Pt(8)
  f=json.loads((ROOT/'data/finance_summary.json').read_text());years=f['yearly_scenarios']['base'][1:]
  b.doc.add_heading('Приложение А. Полная финансовая модель',level=1)
@@ -184,7 +188,8 @@ def main():
  b.para('[РАСЧЕТ] Безубыточность после УСН: 4 200 000 / (1 − 2 640 000 / 8 800 000 − 0,06) = 6 562 500 руб. Эквивалентный набор: '+num(f['break_even_2027']['treatment_ha_passes'])+' га-проходов и '+num(f['break_even_2027']['monitoring_ha_surveys'])+' га-обследований. При изменении микса порог пересчитывается.')
  b.doc.add_heading('Приложение Б. Помесячный денежный поток',level=1);b.para('[ДОПУЩЕНИЕ] Поступления в месяц выполнения; аванс не улучшает модель. [РАСЧЕТ] Начальный остаток после CAPEX и запуска — 2 000 000 руб. Таблица включает все 12 месяцев; месячный УСН — резервирование, не официальный платежный календарь.')
  mm=f['first_year_monthly'];keys=['opening_cash_rub','revenue_collected_ex_vat_rub','variable_cost_paid_rub','fixed_opex_paid_rub','usn_cash_provision_rub','net_operating_cf_rub','closing_cash_rub']
- b.table(['Месяц','Начало','Поступления','Переменные','Постоянные','УСН','Поток','Конец'],[[r['month']]+[num(r[k]) for k in keys] for r in mm],'ДДС 2027, руб.')
+ b.table(['Месяц','Начало','Поступления','Переменные','Постоянные'],[[r['month']]+[num(r[k]) for k in keys[:4]] for r in mm],'ДДС 2027 — поступления и расходы, руб.')
+ b.table(['Месяц','УСН','Поток','Конец'],[[r['month']]+[num(r[k]) for k in keys[4:]] for r in mm],'ДДС 2027 — налог, поток и остаток, руб.')
  b.doc.add_heading('Приложение В. Детальная единичная экономика',level=1)
  b.para('[РАСЧЕТ] Постоянные расходы не распределяются повторно в удельные ставки. Внесение — га-проход; мониторинг — га-обследование. Препарат клиента не включен.')
  u=rows('unit_economics.csv');b.table(['Год / услуга','Тариф без НДС','Переменные','Вклад до УСН','УСН','Вклад после УСН'],[[r['year']+' / '+('Внесение' if r['service']=='treatment' else 'Мониторинг')]+[num(r[k]) for k in ['price_ex_vat_rub','variable_cost_rub','contribution_before_usn_rub','usn_per_unit_rub','contribution_after_usn_rub']] for r in u],'Единичная экономика, руб. на операционную единицу')
@@ -198,6 +203,7 @@ def main():
  b.para('[ДОПУЩЕНИЕ] Полный экспорт параметров модели. Идентификаторы сохранены для сверки с исходными CSV; описание и единицы поясняют смысл. Пороговые налоговые значения основаны на источниках основного раздела; будущая применимость режима требует проверки.')
  aa=rows('assumptions.csv');b.table(['Идентификатор','Значение','Единица','Обоснование / ограничение'],[[r['parameter'],num(r['value']),r['unit'],r['note']] for r in aa],'Полный реестр параметров модели')
  b.doc.add_heading('Приложение Е. Инвестиционная проверка и открытые вопросы',level=1)
+ b.para('Ниже сохранен исторический перечень инвестиционных ограничений 05.09.2026. Текущие уточнения 20.10.2026, включая ресурсный пик июня, дебиторку и новые источники, раскрыты в разделах 6, 9, 11, 17–18 и 22; текущая приемка — RECONCILIATION_2026_10_20.md.')
  review=(ROOT/'docs/FINAL_REVIEW.md').read_text();weak=review.split('## 5. Слабые места и условия инвестиционного решения')[1];b.markdown(weak)
  path=OUT/'AGROVECTOR_FULL_BUSINESS_PLAN.docx';b.doc.save(path)
  # Read-back: package, sections, every source table cell, finance and appendices.

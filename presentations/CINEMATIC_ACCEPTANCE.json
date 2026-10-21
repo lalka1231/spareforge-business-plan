@@ -1,0 +1,40 @@
+{
+  "verified": true,
+  "sha256": "d4ff42e7c90d7b13b624d514391f7dba960ad8f7f6051de502d5db2868d14fd7",
+  "slides": 22,
+  "video_scenes": 22,
+  "unique_embedded_videos": 5,
+  "push_transitions": 22,
+  "immediate_looping_media": 22,
+  "source_notes_preserved": 22,
+  "tables_and_charts_consistent": true,
+  "decoded_media": [
+    {
+      "embedded": "ppt/media/media5.mp4",
+      "bytes": 979807,
+      "full_decode": true
+    },
+    {
+      "embedded": "ppt/media/media3.mp4",
+      "bytes": 3506233,
+      "full_decode": true
+    },
+    {
+      "embedded": "ppt/media/media4.mp4",
+      "bytes": 10956615,
+      "full_decode": true
+    },
+    {
+      "embedded": "ppt/media/media2.mp4",
+      "bytes": 4425464,
+      "full_decode": true
+    },
+    {
+      "embedded": "ppt/media/media1.mp4",
+      "bytes": 5897085,
+      "full_decode": true
+    }
+  ],
+  "pdf_pages": 22,
+  "native_playback_limit": "Native autoplay/loop settings true on all 22 slides after native save; With Previous commands persist. Pixel-level playback is not captured."
+}

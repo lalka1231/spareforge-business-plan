@@ -1,6 +1,5 @@
 ## Sources
 
-[1] https://beeuav.ru — Аренда сельскохозяйственных дронов в Татарстане | Агродроны под ключ
 [2] https://beeuav.ru/uslugi/obrabotka-polej — Обработка полей дронами в сельском хозяйстве | Точное опрыскивание до 10 га/час
 [3] https://xag-ap.ru — Агродроны XAG для опрыскивания полей — купить в Поволжье
 [4] https://xag-ap.ru/spraying.php — Обработка полей дроном — опрыскивание, посев | Агропрофи
@@ -19,9 +18,10 @@
 [19] https://www.consultant.ru/document/cons_doc_LAW_527669/4e1be0f3b6a61b723c0f41a8cdd22c5410404e57 — ИЗМЕНЕНИЯ, ВНОСИМЫЕ В САНИТАРНЫЕ ПРАВИЛА И НОРМЫ САНПИН 2.1.3684-21 "САНИТАРНО-ЭПИДЕМИОЛОГИЧЕСКИЕ ТРЕБОВАНИЯ К СОДЕРЖАНИЮ ТЕРРИТОРИЙ ГОРОДСКИХ И СЕЛЬСКИХ ПОСЕЛЕНИЙ, К ВОДНЫМ ОБЪЕКТАМ, ПИТЬЕВОЙ ВОДЕ И ПИТЬЕВОМУ ВОДОСНАБЖЕНИЮ, АТМОСФЕРНОМУ ВОЗДУХУ,... \ КонсультантПлюс
 [20] http://publication.pravo.gov.ru/document/0001202606020080?index=49 — Постановление Главного государственного санитарного врача Российской Федерации от 02.06.2026 № 15 ∙ Официальное опубликование правовых актов
 [21] https://www.consultant.ru/document/cons_doc_LAW_535845/92d969e26a4326c5d02fa79b8f9cf4994ee5633b — ФЕДЕРАЛЬНАЯ СЛУЖБА ПО НАДЗОРУ В СФЕРЕ ЗАЩИТЫ ПРАВ ПОТРЕБИТЕЛЕЙ И БЛАГОПОЛУЧИЯ ЧЕЛОВЕКА ГЛАВНЫЙ ГОСУДАРСТВЕННЫЙ САНИТАРНЫЙ ВРАЧ РОССИЙСКОЙ ФЕДЕРАЦИИ ПОСТАНОВЛЕНИЕ от 2 июня 2026 г. N 15 ОБ УТВЕРЖДЕНИИ САНИТАРНЫХ ПРАВИЛ СП 2.2.4285-26... \ КонсультантПлюс
-[22] https://legalacts.ru/doc/federalnyi-zakon-ot-30122020-n-490-fz-o-pchelovodstve-v — 490-ФЗ О пчеловодстве в Российской Федерации
-[23] https://fsvps.gov.ru/news/rosselhoznadzor-informiruet-o-vvode-v-jekspluataciju-portala-pchelovoda-i-napominaet-o-neobhodimosti-uvedomljat-o-predstojashhih-obrabotkah-selhozugodij-pesticidami-cherez-fgis-saturn — Россельхознадзор информирует о вводе в эксплуатацию «Портала пчеловода» и напоминает о необходимости уведомлять о предстоящих обработках сельхозугодий пестицидами через ФГИС «Сатурн» | Главное | Россельхознадзор
-[24] https://fsvps.gov.ru/news/rosselhoznadzor-napominaet-o-pravilah-bezopasnogo-obrashhenija-s-pesticidami-i-agrohimikatami — Россельхознадзор напоминает о правилах безопасного обращения с пестицидами и агрохимикатами | Главное | Россельхознадзор
 [26] http://static.government.ru/media/files/3m4AHa9s3PrYTDr316ibUtyEVUpnRT2x.pdf — Стратегия БАС, распоряжение 1630-р
 [27] https://tk-expert.ru/uploads/files/docs/%D0%9F%D0%9E%D0%A1%D0%A2%D0%90%D0%9D%D0%9E%D0%92%D0%9B%D0%95%D0%9D%D0%98%D0%95%2002.06.2026%20N15%20%D0%A1%D0%90%D0%9D%D0%98%D0%A2%D0%90%D0%A0%D0%9D%D0%AB%D0%A5%20%D0%9F%D0%A0%D0%90%D0%92%D0%98%D0%9B%20%D0%A1%D0%9F%2002.2.4285-26%20%D0%A1%D0%90%D0%9D%D0%98%D0%A2%D0%90%D0%A0%D0%9D%D0%9E-%D0%AD%D0%9F%D0%98%D0%94%D0%95%D0%9C%D0%98%D0%9E%D0%9B%D0%9E%D0%93%D0%98%D0%A7%D0%95%D0%A1%D0%9A%D0%98%D0%95%20%D0%A2%D0%A0%D0%95%D0%91.%D0%9A%20%D0%A3%D0%A1%D0%9B%D0%9E%D0%92%D0%98%D0%AF%D0%9C%20%D0%A2%D0%A0%D0%A3%D0%94%D0%90.pdf — СП 2.2.4285-26, текст постановления 02.06.2026 №15 (копия)
 [28] https://www.nalog.gov.ru/rn77/taxation/taxes/nds_usn — https://www.nalog.gov.ru/rn77/taxation/taxes/nds_usn/
+[29] https://xag-ap.ru/p100pro.php — Агропрофи: XAG P100 Pro, карточка модели
+[30] https://www.xa.com/en/p100pro/p100prospecs — XAG P100 Pro: официальная спецификация
+[31] https://16.fsvps.gov.ru/news/s-1-marta-2026-goda-vstupili-v-zakonnuyu-silu-izmeneniya-v-zakonodatelstvo-rf-kasayushhiesya-primeneniya-pesticzidov-i-agrohimikatov — Россельхознадзор: уведомления и ФГИС Сатурн с 01.03.2026
+[32] http://publication.pravo.gov.ru/Document/View/1600202211300002 — Указ Республики Татарстан от 25.11.2022 № УП-813

@@ -1,0 +1,49 @@
+{
+  "file": "/Users/daniilvazdaev/Desktop/уник/Бизнес-планирование/AgroVector/presentations/AGROVECTOR_CINEMATIC.pptx",
+  "sha256": "d4ff42e7c90d7b13b624d514391f7dba960ad8f7f6051de502d5db2868d14fd7",
+  "slides": 22,
+  "embedded_video_files": 5,
+  "video_scenes": 22,
+  "vertical_push_transitions": 22,
+  "autoplay_loop_xml": true,
+  "native_slideshow_playback": "Windowed show Running confirmed; pixel-level playback not captured.",
+  "scene_keys": [
+    "hover",
+    "flight",
+    "detail",
+    "survey",
+    "hover",
+    "survey",
+    "wheat",
+    "survey",
+    "detail",
+    "wheat",
+    "flight",
+    "detail",
+    "survey",
+    "hover",
+    "survey",
+    "detail",
+    "survey",
+    "hover",
+    "detail",
+    "hover",
+    "flight",
+    "hover"
+  ],
+  "limitations": [
+    "Video scenes are edits/composites, not one uninterrupted camera take",
+    "Pexels images do not demonstrate AgroVector operations",
+    "Synthetic drone is an illustrative non-manufacturer-specific model",
+    "No claim that sprayed stock liquid is fertilizer",
+    "Physical hovering and passing are encoded in MP4; no Morph required to animate the drone"
+  ],
+  "native_check": "PowerPoint opened/saved final With Previous play commands. Native API confirms play-on-entry=true and loop=true on all22. Media delay=indefinite is controlled by zero-delay mainSeq/playFrom(0.0), not a click trigger.",
+  "preview": "review/cinematic/AGROVECTOR_INTRO_PREVIEW.mp4: separately rendered intro demonstration, not native playback recording",
+  "static_pdf": {
+    "path": "review/cinematic/AGROVECTOR_CINEMATIC.pdf",
+    "pages": 22,
+    "source_sha256": "d4ff42e7c90d7b13b624d514391f7dba960ad8f7f6051de502d5db2868d14fd7"
+  },
+  "visual_review": "All22 contact sheets reviewed; enlarged slides2/6/17 and intro frame timeline. Table6 note overlap and chart17 legend collision fixed and re-rendered; changed slides rechecked."
+}

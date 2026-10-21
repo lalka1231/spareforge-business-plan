@@ -1,0 +1,58 @@
+{
+  "verified": true,
+  "file": "/Users/daniilvazdaev/Desktop/уник/Бизнес-планирование/AgroVector/presentations/AGROVECTOR_PHOTO_MORPH.pptx",
+  "sha256": "5b7295ecb642aee6ab999fb1dfeede0a7acf2ee5d77875294cb23bfa40cb296c",
+  "slides": 22,
+  "morph_transitions": 22,
+  "embedded_videos": 0,
+  "unique_background_compositions": 22,
+  "same_separate_drone_across_1_2": true,
+  "slide2_only_drone_and_spray_animated": true,
+  "source_notes_preserved": 22,
+  "charts": [
+    {
+      "slide": 11,
+      "chart_points": 5,
+      "filters": [
+        "wipe(up)"
+      ]
+    },
+    {
+      "slide": 17,
+      "chart_points": 15,
+      "filters": [
+        "wipe(up)"
+      ]
+    },
+    {
+      "slide": 18,
+      "chart_points": 6,
+      "filters": [
+        "wipe(left)",
+        "wipe(right)"
+      ]
+    },
+    {
+      "slide": 19,
+      "chart_points": 3,
+      "filters": [
+        "wheel(1)"
+      ]
+    },
+    {
+      "slide": 20,
+      "chart_points": 2,
+      "filters": [
+        "wheel(1)"
+      ]
+    }
+  ],
+  "chart_point_total": 31,
+  "native_open_save": "PowerPoint opened/saved successfully; effects and Morph survived native save",
+  "visual_limit": "PDF static layouts inspected; pixel-level native slideshow motion not recorded. Wheel is sector reveal, not numeric data interpolation.",
+  "native_slide_advance_test": {
+    "from": 1,
+    "to": 2,
+    "result": "PASS via PowerPoint slideshow API; repeating motion moved to parallel root branches to avoid blocking Morph"
+  }
+}

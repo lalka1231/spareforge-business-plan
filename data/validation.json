@@ -3,7 +3,7 @@
   "sections": 22,
   "slides": 22,
   "project_tasks": 13,
-  "sources_registered": 28,
+  "sources_registered": 32,
   "sources_cited": 25,
   "npv_independent_rub": 3946443.104442741,
   "capex_rub": 7000000,
@@ -18,8 +18,14 @@
   },
   "visual_rendering": false,
   "limitations": [
-    "Automatic verification is structural; rendered inspection is recorded in docs/RECONCILIATION_2026_10_14.md",
+    "Structural checks only; actual PDF rendering and inspection are recorded in docs/RECONCILIATION_2026_10_20.md",
     "Source verification is evidence-based retrieval, not legal opinion",
     "TAM/SAM and future shares are scenarios, not independently measured markets"
-  ]
+  ],
+  "canonical_competitor_tables_md": 1,
+  "canonical_competitor_tables_word": 1,
+  "competitor_projection_slide": 6,
+  "supplemental_scenarios": 3,
+  "collection_delay_cases": 3,
+  "milestones": 2
 }

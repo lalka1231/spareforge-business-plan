@@ -1,0 +1,39 @@
+{
+  "renderer": "LibreOffice",
+  "date": "2026-10-20",
+  "files": [
+    {
+      "source": "documents/AGROVECTOR_FULL_BUSINESS_PLAN.docx",
+      "source_sha256": "2b6827dd21f1944e9af2d987c8cd757e40adc4b1c632b8acb8ca4235e0983d14",
+      "pdf": "review/2026-10-20/AGROVECTOR_FULL_BUSINESS_PLAN.pdf",
+      "pages": 57,
+      "text_outside_page": [],
+      "contacts": [
+        "review/2026-10-20/doc-contact-01.jpg",
+        "review/2026-10-20/doc-contact-02.jpg",
+        "review/2026-10-20/doc-contact-03.jpg",
+        "review/2026-10-20/doc-contact-04.jpg",
+        "review/2026-10-20/doc-contact-05.jpg",
+        "review/2026-10-20/doc-contact-06.jpg",
+        "review/2026-10-20/doc-contact-07.jpg"
+      ]
+    },
+    {
+      "source": "presentations/AGROVECTOR_22_SLIDES.pptx",
+      "source_sha256": "b2d062d69070dc23413699c98fbe7b46918a74a3f43324632eb439faaf5ddf66",
+      "pdf": "review/2026-10-20/AGROVECTOR_22_SLIDES.pdf",
+      "pages": 22,
+      "text_outside_page": [],
+      "contacts": [
+        "review/2026-10-20/deck-contact-01.jpg",
+        "review/2026-10-20/deck-contact-02.jpg",
+        "review/2026-10-20/deck-contact-03.jpg"
+      ]
+    }
+  ],
+  "visual_inspection": {
+    "status": "reviewed_with_limitations",
+    "scope": "Earlier full contact-sheet review retained; changed pages 21 and 35 rechecked visually after resource addition; no visible cropping or overlaps.",
+    "limitations": "LibreOffice, not Microsoft Office-native certification; dense appendix and small footnotes remain."
+  }
+}
