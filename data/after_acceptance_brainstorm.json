@@ -1,0 +1,32 @@
+{
+  "verified": true,
+  "parent_commit": "428ed6b1ea89876a6a910299f843efaa8507062e",
+  "historical_tracked_files_unchanged": true,
+  "sections": 22,
+  "slides": 22,
+  "notes_synchronized": 22,
+  "timing_transition_preserved": 22,
+  "first_two_slides_identical": true,
+  "chart_series_unchanged": 11,
+  "word_tables": 42,
+  "word_diagrams": 2,
+  "pdf_pages": {
+    "presentations/AGROVECTOR_AFTER_brainstorm.pdf": 22,
+    "documents/AGROVECTOR_FULL_BUSINESS_PLAN_brainstorm.pdf": 79
+  },
+  "npv_rub": -1067653.16170057,
+  "fixed_monthly_rub": 490600.0,
+  "first_negative_no_revenue_month": 5,
+  "hashes": {
+    "docs/FINAL_BUSINESS_PLAN_brainstorm.md": "3cfcc24c37ba6c89980bd210e1831354b7e2001986766d3258b4c76a3b223f3a",
+    "data/finance_corrected_brainstorm.json": "68e77b9790caae24686d6b1e4707d72130238ab4eea841d28ef79a71fbb39e85",
+    "documents/AGROVECTOR_FULL_BUSINESS_PLAN_brainstorm.docx": "5cb3cf9a40138d16d89396b0eeb6a4469ddf5e6aac6f831fe9640ab3bd562a83",
+    "presentations/AGROVECTOR_AFTER_brainstorm.pptx": "954c8210573acf1cade8007ca867fbde4c64012a0d482c4a470a3a8678dd4f5a",
+    "presentations/AGROVECTOR_AFTER_brainstorm.pdf": "b47a2d93c6ba011bb641059ebceb39f70afdff48b2cb253690446367e6577bcd",
+    "documents/AGROVECTOR_FULL_BUSINESS_PLAN_brainstorm.pdf": "d12294bdc896a42cbb228f87d2b6bfe820a8b797c95169ba75a7fec276b39ae3"
+  },
+  "limits": [
+    "Static LibreOffice render; no new native PowerPoint slideshow playback test",
+    "External legal, tax, market, staffing, supplier, operational and financing gates remain open"
+  ]
+}
