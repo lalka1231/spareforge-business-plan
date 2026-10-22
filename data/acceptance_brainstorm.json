@@ -1,0 +1,35 @@
+{
+  "verified": true,
+  "baseline_commit": "7c05732803c7bedff0ce15f35647195e61de0790",
+  "baseline_unchanged": true,
+  "risk_count": 37,
+  "sections_covered": 22,
+  "scenarios": 23,
+  "liquidity_cases": 12,
+  "annual_rows": 138,
+  "liquidity_month_rows": 144,
+  "known_baseline_warnings": [
+    {
+      "file": "data/finance_summary.json",
+      "field": "cash_runway.no_revenue_first_negative_month",
+      "declared": 6,
+      "calculated": 5,
+      "scope": "baseline metadata; no change made"
+    },
+    {
+      "file": "docs/FINANCE_METHOD.md",
+      "problem": "stale monthly fixed-OPEX prose",
+      "correct_rub": 490600.0,
+      "scope": "baseline prose; no change made"
+    }
+  ],
+  "limitations": [
+    "No new legal/market/customer evidence",
+    "No new deck generated or motion certified"
+  ],
+  "independent_review": {
+    "status": "PASS with caveats",
+    "report": "docs/REVIEW_brainstorm.md",
+    "scope": "Read-only document and calculation review; parent separately executed tests"
+  }
+}
