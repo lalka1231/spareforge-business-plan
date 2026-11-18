@@ -33,6 +33,8 @@ def verify():
     assert '79 298 000 га' in md and '164 543 350 000' in md and '24 681 502 500' in md
     assert 'SAM России' in md and 'локальный кластер Татарстана' in md
     assert '6 000 га-проходов / 130' in md and '4 000 га-обследований / 500' in md
+    assert 'Героев России' in md and 'план набора ветеранов СВО' in md
+    assert '[ФАКТ] В 2025 году 51 участник СВО' in md and '[46] https://edu.gov.ru/' in md
     market=json.loads((ROOT/'data/defense_market.json').read_text())
     unit=market['treatment_passes_per_ha_scenario']*market['treatment_price_rub_2027']+market['monitoring_surveys_per_ha_scenario']*market['monitoring_price_rub_2027']
     assert unit==2075
@@ -59,6 +61,8 @@ def verify():
     market_slide=' '.join(s.text for s in ppt.slides[4].shapes if s.has_text_frame)
     assert all(value in market_slide for value in ('164,543','24,682','8,8 млн','124,5 млн'))
     assert 'не подписанные заказы' not in market_slide
+    swot_slide=' '.join([s.text for s in ppt.slides[6].shapes if s.has_text_frame]+[c.text for s in ppt.slides[6].shapes if s.has_table for row in s.table.rows for c in row.cells])
+    assert all(value in swot_slide for value in ('Героев России','Кадровый план','психологическую устойчивость','прозрачные тарифы','резервный борт'))
     for (number,section),slide in zip(sections,ppt.slides):
         note=slide.notes_slide.notes_text_frame.text
         assert section in note,(number,'Notes are not synchronized to revised report')
@@ -110,6 +114,8 @@ def verify():
         pdf_counts[relative]=len(pdf)
     slide_pdf=pymupdf.open(ROOT/'presentations/AGROVECTOR_AFTER_brainstorm.pdf')
     assert any('favt.gov.ru' in x.get('uri','') for x in slide_pdf[7].get_links())
+    word_pdf=pymupdf.open(ROOT/'documents/AGROVECTOR_FULL_BUSINESS_PLAN_brainstorm.pdf')
+    assert len(word_pdf)==78 and '8. Пять сил Портера' in word_pdf[12].get_text()
     assets=['docs/FINAL_BUSINESS_PLAN_brainstorm.md','data/finance_corrected_brainstorm.json','documents/AGROVECTOR_FULL_BUSINESS_PLAN_brainstorm.docx','presentations/AGROVECTOR_AFTER_brainstorm.pptx',*pdf_counts]
     for name in assets:assert (ROOT/name).stat().st_size<100*1024**2
     return {'verified':True,'parent_commit':PARENT,'historical_snapshots_unchanged':True,'sections':22,'slides':22,'notes_synchronized':22,'timing_transition_preserved':22,'first_two_slide_images_preserved':True,'chart_series_unchanged':chart_count,'word_tables':len(doc.tables),'word_diagrams':len(doc.inline_shapes),'competitor_rows_synchronized':len(comparison['rows']),'pdf_pages':pdf_counts,'npv_rub':current['base']['npv_rub'],'fixed_monthly_rub':burn,'first_negative_no_revenue_month':first,'hashes':{name:hashlib.sha256((ROOT/name).read_bytes()).hexdigest() for name in assets},'limits':['Static LibreOffice render; no new native PowerPoint slideshow playback test','External legal, tax, market, staffing, supplier, operational and financing gates remain open']}

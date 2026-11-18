@@ -19,12 +19,12 @@
   "fixed_monthly_rub": 490600.0,
   "first_negative_no_revenue_month": 5,
   "hashes": {
-    "docs/FINAL_BUSINESS_PLAN_brainstorm.md": "d1b1aaa1d43bfe3c86b18cf3c34032c9646ed92835ae42a50ef718ba7aee1bfd",
+    "docs/FINAL_BUSINESS_PLAN_brainstorm.md": "fb7b94793a4a94de436b0283949735247c2f1e51c0f38afe43819ccaec0f0d59",
     "data/finance_corrected_brainstorm.json": "68e77b9790caae24686d6b1e4707d72130238ab4eea841d28ef79a71fbb39e85",
-    "documents/AGROVECTOR_FULL_BUSINESS_PLAN_brainstorm.docx": "32d6a8feceb216bd5d1ecbc8ebdf317999e0071fb7a7c6e65e6651eb61138f5c",
-    "presentations/AGROVECTOR_AFTER_brainstorm.pptx": "cc48cc20d73580286735dae418b8503eb0547c70f0dccc7956ddbb196b23e0bc",
-    "presentations/AGROVECTOR_AFTER_brainstorm.pdf": "afaa149c6a75782890002e79279789d2310c8fe72fd39d6c4ad871451c509163",
-    "documents/AGROVECTOR_FULL_BUSINESS_PLAN_brainstorm.pdf": "01e02836497457e57fa98183aff6b0d22de7589b43300150ad46faea67937150"
+    "documents/AGROVECTOR_FULL_BUSINESS_PLAN_brainstorm.docx": "92923091edfdc216694f0f3129de279ffd65b78f96f5c77bf503764bc09dc718",
+    "presentations/AGROVECTOR_AFTER_brainstorm.pptx": "d273b18406c0588910c38c133a23a1921ae0c9e98801ce0154fa17a5d98ce4d2",
+    "presentations/AGROVECTOR_AFTER_brainstorm.pdf": "aa0b1fae6a8dfcc137b85933c38153d981d6df8f1839c872d2b310c0d99d1363",
+    "documents/AGROVECTOR_FULL_BUSINESS_PLAN_brainstorm.pdf": "758b9c840fb9c07029f6200c414732ffaf632ba1a3cb39d49d1285643dabe16d"
   },
   "limits": [
     "Static LibreOffice render; no new native PowerPoint slideshow playback test",
