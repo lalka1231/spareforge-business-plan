@@ -1,29 +1,30 @@
 {
   "verified": true,
   "parent_commit": "428ed6b1ea89876a6a910299f843efaa8507062e",
-  "historical_tracked_files_unchanged": true,
+  "historical_snapshots_unchanged": true,
   "sections": 22,
   "slides": 22,
   "notes_synchronized": 22,
   "timing_transition_preserved": 22,
-  "first_two_slides_identical": true,
+  "first_two_slide_images_preserved": true,
   "chart_series_unchanged": 11,
-  "word_tables": 42,
+  "word_tables": 43,
   "word_diagrams": 2,
+  "competitor_rows_synchronized": 7,
   "pdf_pages": {
     "presentations/AGROVECTOR_AFTER_brainstorm.pdf": 22,
-    "documents/AGROVECTOR_FULL_BUSINESS_PLAN_brainstorm.pdf": 79
+    "documents/AGROVECTOR_FULL_BUSINESS_PLAN_brainstorm.pdf": 78
   },
   "npv_rub": -1067653.16170057,
   "fixed_monthly_rub": 490600.0,
   "first_negative_no_revenue_month": 5,
   "hashes": {
-    "docs/FINAL_BUSINESS_PLAN_brainstorm.md": "3cfcc24c37ba6c89980bd210e1831354b7e2001986766d3258b4c76a3b223f3a",
+    "docs/FINAL_BUSINESS_PLAN_brainstorm.md": "d1b1aaa1d43bfe3c86b18cf3c34032c9646ed92835ae42a50ef718ba7aee1bfd",
     "data/finance_corrected_brainstorm.json": "68e77b9790caae24686d6b1e4707d72130238ab4eea841d28ef79a71fbb39e85",
-    "documents/AGROVECTOR_FULL_BUSINESS_PLAN_brainstorm.docx": "5cb3cf9a40138d16d89396b0eeb6a4469ddf5e6aac6f831fe9640ab3bd562a83",
-    "presentations/AGROVECTOR_AFTER_brainstorm.pptx": "954c8210573acf1cade8007ca867fbde4c64012a0d482c4a470a3a8678dd4f5a",
-    "presentations/AGROVECTOR_AFTER_brainstorm.pdf": "b47a2d93c6ba011bb641059ebceb39f70afdff48b2cb253690446367e6577bcd",
-    "documents/AGROVECTOR_FULL_BUSINESS_PLAN_brainstorm.pdf": "d12294bdc896a42cbb228f87d2b6bfe820a8b797c95169ba75a7fec276b39ae3"
+    "documents/AGROVECTOR_FULL_BUSINESS_PLAN_brainstorm.docx": "32d6a8feceb216bd5d1ecbc8ebdf317999e0071fb7a7c6e65e6651eb61138f5c",
+    "presentations/AGROVECTOR_AFTER_brainstorm.pptx": "cc48cc20d73580286735dae418b8503eb0547c70f0dccc7956ddbb196b23e0bc",
+    "presentations/AGROVECTOR_AFTER_brainstorm.pdf": "afaa149c6a75782890002e79279789d2310c8fe72fd39d6c4ad871451c509163",
+    "documents/AGROVECTOR_FULL_BUSINESS_PLAN_brainstorm.pdf": "01e02836497457e57fa98183aff6b0d22de7589b43300150ad46faea67937150"
   },
   "limits": [
     "Static LibreOffice render; no new native PowerPoint slideshow playback test",

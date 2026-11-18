@@ -1,0 +1,16 @@
+{
+  "area_russia_ha_2025_rounded": 79298000,
+  "treatment_passes_per_ha_scenario": 1.5,
+  "monitoring_surveys_per_ha_scenario": 0.5,
+  "treatment_price_rub_2027": 1300,
+  "monitoring_price_rub_2027": 250,
+  "serviceable_share_scenario": 0.15,
+  "tam_rub": 164543350000,
+  "sam_rub": 24681502500,
+  "local_tatarstan_cluster_rub": 124500000,
+  "som_rub_2027": 8800000,
+  "som_over_national_sam_percent": 0.035654,
+  "som_over_local_cluster_percent": 7.068273,
+  "interpretation": "TAM — все посевы хозяйств России при сценарном наборе услуг; SAM — 15% потенциально пригодной площади России, без утверждения о фактическом числе хозяйств, уже использующих дроны; локальный кластер Татарстана — отдельный плацдарм, а не SAM.",
+  "source_area": "https://eec.eaeunion.org/upload/files/dep_stat/econstat/analytics/indicators2025_07.pdf#page=9"
+}
